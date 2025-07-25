@@ -1,0 +1,1074 @@
+/* ─── Font Awesome ─── */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+/* ================= ΟΡΙΣΜΟΣ ΜΕΤΑΒΛΗΤΩΝ ΓΙΑ ΕΥΚΟΛΟ TWEAKING ================= */
+:root {
+  /* διάκενο μεταξύ links */
+  --nav-gap:          1.5rem;
+  /* font-size των links */
+  --nav-font-size:    1.90rem;
+  /* αριστερό margin του menu (mobile/tablet) */
+  --nav-margin-base:  1.5rem;   /* αντί για ms-4 */
+  /* αριστερό margin του menu (desktop ≥992px) */
+  --nav-margin-lg:    0.5rem;   /* αντί για ms-lg-2 */
+}
+
+/* ================= ΒΑΣΙΚΕΣ ΡΥΘΜΙΣΕΙΣ ================= */
+.logo-container {
+  padding-left: 1rem;
+  margin-right: 1rem;
+}
+
+.menu-links {
+  display: flex;
+  gap: var(--nav-gap);
+}
+
+.navbar-nav {
+  display: flex;                /* για να λειτουργεί το gap */
+  flex-wrap: wrap;              /* σπάσιμο σε γραμμές αν χρειάζεται */
+  gap: var(--nav-gap);
+  margin-left: var(--nav-margin-base);
+  margin-right: 0;
+}
+
+.navbar-nav .nav-link {
+  font-size: var(--nav-font-size);
+  transition: color 0.3s ease;
+}
+
+/* ================= MOBILE <768px ================= */
+@media (max-width: 767.98px) {
+  .navbar-collapse {
+    flex-direction: column !important;
+  }
+  .logo-container {
+    padding-left: 0;
+    margin: 0 auto 1rem;
+  }
+  .menu-links {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  .navbar-nav {
+    margin: 0 auto;
+  }
+  .navbar-nav .nav-link {
+    text-align: center;
+    font-size: 1.25rem;
+  }
+}
+
+/* ================= TABLET 768px–991.98px ================= */
+@media (min-width: 768px) and (max-width: 1000px) {
+  .logo-container {
+    padding-left: 4rem;
+    margin-right: 1.5rem;
+  }
+  .navbar-nav {
+    justify-content: space-between;
+    width: 50%;
+    padding-left: 10vw;
+  }
+  .navbar-nav .nav-link {
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+  }
+}
+
+/* ================= DESKTOP ≥992px ================= */
+@media (min-width: 2000px) {
+  .logo-container {
+    padding-left: 22rem;
+    margin-right: 1.5rem;
+  }
+  .navbar-nav {
+    justify-content: space-between;
+    width: 50%;
+    padding-left: 5vw;;
+    gap: 0; /* το space-between αναλαμβάνει το spacing */
+  }
+  .navbar-nav .nav-link {
+    font-size: 1.90rem;
+  }
+}
+
+  /* FOOTER */
+.footer{
+  padding-left: 2%;
+}
+
+.footer .social-links {
+  padding-top: 0.5%;
+  display: inline-flex;
+  gap: 1.5rem;
+}
+
+.footer .social-icon {
+  padding-bottom: 5%;
+  font-size: 1.1vw;
+  transition: color .3s, transform .3s;
+}
+
+.footer .social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.footer .social-icon.facebook:hover {
+  color: #3b5998;  /* Facebook blue */
+}
+
+.footer .social-icon.instagram:hover {
+  color: #E1306C;  /* Instagram gradient pink */
+}
+
+.footer .footer-copy {
+  font-size: 1.1vw;
+  opacity: 0.9;
+}
+
+
+/* ================= Hero Section ================= */
+.body-main {
+  background: #fff;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 80vh;                        /* Υψος ή πχ min-height: 500px */
+  background: url('assets/MAK Demetriou R-05 Logo.png')   /* δικό σου αρχείο εικόνας */
+              no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* σκουραίνει ελαφρώς την εικόνα */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;                           /* πάνω από το overlay */
+  max-width: 800px;                     /* να μην απλωθεί υπερβολικά το κείμενο */
+  padding: 0 1rem;
+}
+
+/* Responsive ύψος hero */
+@media (max-width: 767.98px) {
+  .main {
+    height: 60vh;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .main {
+    height: 70vh;
+  }
+}
+@media (min-width: 992px) {
+  .main {
+    height: 80vh;
+  }
+}
+
+
+
+
+
+/* ─────────────── Base (Mobile First) ─────────────── */
+.intro-section {
+  background-color: #f9f9f9;
+  color: #333;
+}
+.intro-section .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.intro-section h2 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #002E5B;
+  margin-bottom: 1rem;
+}
+.intro-section p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 90%;
+  color: #555;
+}
+
+/* ─────────────── Tablet (768px–1023px) ─────────────── */
+@media (min-width: 768px) and (max-width: 1999px) {
+  .intro-section .container {
+    padding: 4rem 2rem;
+    max-width: 80%;
+  }
+  .intro-section h2 {
+    font-size: 2.55rem;
+  }
+  .intro-section p {
+    font-size: 1.5rem;
+    max-width: 75%;
+  }
+}
+
+
+/* ─────────────── Wide (≥1440px) ─────────────── */
+@media (min-width: 2000px) {
+  .intro-section .container {
+    padding: 6rem 4rem;
+    max-width: 80%;
+  }
+  .intro-section h2 {
+    font-size: 3.75rem;
+  }
+  .intro-section p {
+    font-size: 2.675rem;
+    max-width: 75%;
+  }
+}
+
+
+
+
+/* Logo rational στο κέντρο, με μικρή απόσταση πάνω/κάτω */
+.rational-logo-section {
+  padding-top: 10rem;
+  text-align: center;
+  margin: 2rem 0;      /* 2rem πάνω / κάτω – πειραματίσου αν θες άλλο διάκενο */
+  overflow: hidden;    /* για να μην πετάει έξω ό,τι ξεχειλίζει */
+}
+
+/* Fluid sizing για το logo */
+.rational-logo-img {
+  display: inline-block;
+  width: clamp(25%, 8vw, 25%);
+  /* ποτέ μικρότερο από 120px, ιδανικά 12% του viewport πλάτους, ούτε πάνω από 240px */
+  height: auto;
+}
+
+.rational-icombi-layout {
+  display: grid;
+  grid-template-columns: 50% 50%;  /* 60% πλάτος στο κείμενο, 40% στην εικόνα */
+  column-gap: 0.2vw;               /* λίγο κενό ανάμεσα στις δύο στήλες */
+  align-items: start;             /* στοίχιση στην κορυφή */
+  overflow: hidden;               /* κρύβει ό,τι ξεχειλίζει */
+  padding: 0rem;                  /* ίδιο με py-5 */
+}
+/* ─────────────── Default (laptop/desktop) ─────────────── */
+.text-area {
+  font-family: 'Inter', sans-serif;
+  padding-top: 25vh;     /* 30% του ύψους του viewport */
+  padding-left: 2.5vw;   /* 2.5% του πλάτους του viewport */
+}
+
+
+/* ─────────────── Tablet (768px – 1023px) ─────────────── */
+@media (min-width: 768px) and (max-width: 1800px) {
+  .text-area {
+    padding-top: 8vh;   /* κατεβάζουμε λιγάκι το μπλοκ */
+    padding-left: 4vw;   /* αυξάνουμε λίγο το αριστερό κενό */
+  }
+}
+
+/* ─────────────── Mobile (0 – 767px) ─────────────── */
+@media (max-width: 767px) {
+  .text-area {
+    padding-top: 4vh;   /* δεν το αφήνουμε να πάει troppo ψηλά */
+    padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
+  }
+
+  /* Προαιρετικά, για να γίνει full-width κάτω από tablet */
+  .rational-icombi-layout {
+    display: block;
+  }
+  .image-area {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .rational-icombi-ivario-img {
+    width: 80%;          /* μικραίνουμε την εικόνα στο mobile */
+    left: 10%;
+  }
+}
+
+
+.text-area h2 {
+  font-size: 3.5vw;       /* 6% του πλάτους του viewport */
+}
+
+.text-area p {
+  font-size: 1.25vw;     /* 2.5% του πλάτους του viewport */
+  line-height: 1.6;
+  margin-bottom: 1vh;  /* διάκενο ανάμεσα στις παραγράφους */
+}
+
+
+.rational-icombi-ivario-section {
+  position: relative;
+  overflow: hidden;    /* κρύβει το κομμάτι της εικόνας που βγαίνει έξω */
+  padding: 3rem 0;     /* διατηρεί το py-5 (προαιρετικό) */
+}
+
+.rational-icombi-ivario-img {
+  display: block;                /* ξεφορτωνόμαστε inline-gap */
+  width: 120% !important;        /* 20% μεγαλύτερη από το parent */
+  max-width: none !important;    /* ακυρώνει Bootstrap max-width:100% */
+  height: auto;                  /* διατηρεί αναλογίες */
+  margin-left: 0% !important;   /* σπρώχνει τη «μεγαλωμένη» εικόνα δεξιά */
+}
+
+
+
+
+
+
+/* κεντράρει το logo και δίνει κενό από κάτω */
+.polaris-logo-section {
+  text-align: center;
+  margin: 3rem 0;       /* 3rem πάνω ΚΑΙ κάτω, πειραματίσου αν θες άλλο διάκενο */
+  overflow: hidden;
+  padding-top: 10rem;    /* αύξησε από 3rem σε 5rem ή ό,τι θες */
+
+}
+
+/* κλιμακωτό μέγεθος για το logo */
+.polaris-logo-img {
+  display: inline-block;
+  width: clamp(40%, 8vw, 40%);
+  /* ποτέ μικρότερο από 150px, ιδανικά 10% του viewport, ούτε πάνω από 300px */
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+.polaris-section {
+  display: flex;
+  align-items: flex-start;        /* ευθυγράμμιση πάνω-πάνω */
+  justify-content: space-between; /* Polaris αριστερά, genious-wrapper δεξιά */
+  padding: clamp(1rem, 5vh, 3rem) 2.5vw; /* fluid padding πάνω/κάτω & αριστερά/δεξιά */
+  overflow: hidden;
+}
+
+/* Container για τις δύο δεξιές εικόνες */
+.genious-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.polaris-img {
+  display: block;
+  width: clamp(40%, 50vw, 60%);
+  height: auto;
+}
+/* Μεγάλη Genious δεξιά: από 30–40% → 35–50% */
+.genious-img {
+  display: block;
+  width: clamp(35%, 25vw, 50%);
+  height: auto;
+}
+
+
+
+
+
+
+.ataslr-logo-section {
+  text-align: center;
+  margin: clamp(1rem, 5vh, 3rem) 0;  /* fluid πάνω/κάτω κενό */
+  overflow: hidden;
+  padding-top: 10rem;    /* αύξησε από 3rem σε 5rem ή ό,τι θες */
+  padding-bottom: 3rem;
+
+}
+.ataslr-logo-img {
+  display: inline-block;
+  width: clamp(15%, 8vw, 25%);
+  /* ποτέ μικρότερο από 120px, ιδανικά 15vw, ούτε πάνω από 240px */
+  height: auto;
+}
+
+
+
+
+.ataslr-section {
+  display: flex;
+  align-items: flex-start;      /* ευθυγράμμιση στο πάνω μέρος */
+  justify-content: flex-start;  /* κείμενο αριστερά, εικόνα δεξιά */
+  gap: 5rem;                     /* κενό ανάμεσα σε κείμενο – εικόνα */
+  padding: clamp(1rem, 5vh, 3rem) 2.5vw; /* fluid padding πάνω/κάτω & πλαϊνό */
+  overflow: hidden;
+}
+
+/* ─────────────── Default (laptop/desktop) ─────────────── */
+.ataslr-text {
+  padding-top: 15vh;     /* 25% του ύψους του viewport */
+}
+
+/* Μέγεθος τίτλου */
+.ataslr-text h2 {
+  font-size: 2.0vw;
+  line-height: 1.2;            /* από 1.3–1.4 π.χ. -> 1.2 */
+  margin-bottom: 0.5rem;       /* λιγότερο κενό μετά τον τίτλο */
+  letter-spacing: -0.02em;     /* -0.02em για πιο συμπαγή χαρακτήρες */
+}
+
+/* Μέγεθος παραγράφου */
+.ataslr-text p {
+  font-size: 1.5vw;      /* 1.25% του πλάτους του viewport */
+  line-height: 1.6;
+  margin-bottom: 1vh;     /* 1% του ύψους του viewport */
+}
+
+/* ─────────────── Tablet (768px – 1800px) ─────────────── */
+@media (min-width: 768px) and (max-width: 1800px) {
+  .ataslr-text {
+    padding-top: 7vh;    /* κατεβάζουμε λίγο το μπλοκ */
+    padding-left: 2vw;   /* αυξάνουμε ελαφρώς το αριστερό κενό */
+  }
+}
+
+/* ─────────────── Mobile (0 – 767px) ─────────────── */
+@media (max-width: 767px) {
+  .ataslr-text {
+    padding-top: 4vh;    /* περιορίζουμε το padding-top */
+    padding-left: 6vw;   /* μεγαλύτερο αριστερό κενό σε πολύ μικρές οθόνες */
+  }
+}
+
+
+.ataslr-image {
+  flex-shrink: 0;
+  width: clamp(40%, 50vw, 60%);
+}
+
+.ataslr-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+/* ---------------- Video Carousel Styles ---------------- */
+.video-carousel-section {
+  text-align: center;
+}
+
+/* Προαιρετικά: μικρό padding γύρω από το carousel */
+.video-carousel-section .carousel {
+  padding: 0 1rem;
+}
+
+/* Αν θες να έχεις λίγο κενό πάνω/κάτω */
+.video-carousel-section {
+  margin: clamp(1rem, 5vh, 3rem) 0;
+}
+
+/* Κάνουμε το carousel μεγαλύτερο και fluid */
+#videoCarousel {
+  width: 80vw;            /* 90% του viewport width */
+  max-width: 1200px;      /* όμως ποτέ πάνω από 1200px */
+}
+
+/* Προαιρετικά: αν θες πάντα full-width χωρίς όριο */
+#videoCarousel {
+  width: 100%;
+  max-width: none;
+}
+
+
+/* Με αυτό το max-width στο inline style κρατάς το carousel μέχρι 800px */
+#videoCarousel {
+  width: clamp(60%, 70vw, 80%);
+}
+
+
+.video-section {
+  background-color: #000;      /* μαύρο φόντο */
+  color: #fff;                 /* λευκό χρώμα κειμένου (αν έχεις captions) */
+  padding: clamp(1rem,5vh,2rem) 2.5vw;
+}
+
+/* αν έχεις carousel */
+.video-carousel-section {
+  background-color: #000;
+  color: #fff;
+  margin: clamp(1rem,5vh,3rem) 0;
+}
+
+
+
+
+
+
+/* LOGOS UNDER */
+.logo-slider-section {
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.logo-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 8);     /* 8 = αριθμός .slide μέσα */
+  animation: scroll 30s linear infinite;
+}
+
+.slide {
+  width: 250px;                /* πλάτος κάθε logo */
+  flex-shrink: 0;
+  margin-right: 2rem;          /* κενό ανάμεσα στα logos */
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 1. Ισοσταθμισμένο flex container */
+.logo-slider .slide-track {
+  display: flex;
+  align-items: center;    /* όλα τα logos στο ίδιο ύψος */
+}
+
+/* 2. Κάθε slide “μας” γίνεται flex για επιπλέον στοίχιση */
+.logo-slider .slide {
+  display: flex;
+  align-items: center;    /* κάθε logo στο κέντρο κάθετους */
+  justify-content: center;/* προαιρετικά, στο κέντρο οριζόντια */
+  
+  /* π.χ. ύψος 100px ώστε όλα να “κουμπώσουν” σε ίδιο πλαίσιο */
+  height: 100px;
+  margin-right: 2rem;
+}
+
+/* 3. Φροντίζουμε τα images να μην ξεπερνούν το max-height */
+.logo-slider .slide img {
+  max-height: 100%;
+  width: auto;            /* κρατάμε αναλογίες */
+}
+
+.slide-track {
+  display: flex;
+  align-items: center;
+  gap: 7rem;    /* 2rem κενό ανάμεσα σε κάθε slide */
+  animation: scroll 40s linear infinite;
+}
+
+
+/* keyframes: μετακινούμε όλο το track κατά μισό, 
+   επειδή το έχουμε διπλώσει (8 slides = 2 * 4 logos) */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* ─── About Us Section ─── */
+.about-us-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* δύο στήλες: κείμενο | εικόνα */
+  gap: 2rem;                       /* κενό ανάμεσα στις στήλες */
+  align-items: center;             /* στοιχίζει κάθετα στο κέντρο */
+  padding: clamp(2rem, 5vh, 6rem) 5%; /* fluid padding πάνω/κάτω & πλαϊνό */
+  background-color: #f9f9f9;       /* ελαφρύ γκρι φόντο (προαιρετικό) */
+}
+
+/* Τύπογραφία */
+.about-us-text h2 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #002E5B;
+  margin-bottom: 1rem;
+}
+
+.about-us-text p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Εικόνα */
+.about-us-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem; /* ελαφρύ rounding (προαιρετικό) */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Responsive: σε μικρές οθόνες γίνεται μονή στήλη */
+@media (max-width: 768px) {
+  .about-us-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about-us-image {
+    margin-top: 2rem;
+  }
+}
+
+
+
+/* ABOUT US SECTION 1ST PARAGRAPH */
+.about-section {
+  background: linear-gradient(135deg, #f7fafd 80%, #e6eefe 100%);
+  border-radius: 25px;
+  box-shadow: 0 4px 20px #00336612;
+  padding: 56px 48px 48px 48px;
+  max-width: 60vw;
+  margin: 40px auto 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.about-title {
+  font-size: 3.1rem;
+  color: #003366;
+  font-weight: 800;
+  margin-bottom: 0.4em;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+.about-title::before {
+  content: '';
+  display: inline-block;
+  width: 34px;
+  height: 5px;
+  background: #e02626;
+  border-radius: 6px;
+  margin-right: 16px;
+}
+.about-subtitle {
+  font-size: 1.6rem;
+  color: #006199;
+  font-style: italic;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.about-maintext {
+  font-size: 1.56rem;
+  color: #24292f;
+  margin-bottom: 1.2em;
+  line-height: 1.75;
+}
+.about-list {
+  font-size: 1.48rem;
+    color: #333;
+    margin-bottom: 2em;
+    padding-left: 0;
+    list-style: none;
+  }
+  .about-list li {
+    margin-bottom: 0.75em;
+    display: flex;
+    align-items: flex-start;
+  }
+.about-list li::before {
+  content: '✓';
+  margin-right: 12px;
+  font-size: 1.55em;
+  color: #003366;
+  font-weight: bold;
+  transform: translateY(2px);
+}
+
+  .about-goal {
+    font-size: 1.55rem;
+    color: #0c2c55;
+    margin-bottom: 2.2em;
+    font-weight: 600;
+    background: #e8f3ff;
+    padding: 18px 28px;
+    border-left: 7px solid #e02626;
+    border-radius: 0 18px 18px 0;
+  }
+  .about-footer {
+    font-size: 1.45rem;
+    color: #2c3c4c;
+    font-weight: 700;
+    margin-top: 2.8em;
+    padding-left: 8px;
+    border-left: 5px solid #003366;
+    background: #f1f7fc;
+    border-radius: 12px;
+    display: inline-block;
+  }
+  .brand-highlight {
+    color: #e02626;
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+  }
+
+
+
+
+
+ /* ABOUT US BACKGROUND PICTURE */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap');
+
+.hero-banner {
+  width: 100vw;
+  height: 40vw;                /* Ή όσο θέλεις, π.χ. 350px σε vw */
+  background-image: url('assets/vario_marios.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-left: calc(50% - 50vw);  /* Πιάνει όλο το πλάτος ακόμα και σε container */
+  margin-right: calc(50% - 50vw);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.hero-title-bg {
+  background: linear-gradient(180deg, rgba(20,20,20,0.88) 70%, rgba(20,20,20,0.4) 100%);
+  padding: 2.4vw 5vw;
+  border-radius: 2vw;
+  border-bottom: 0.3vw solid #cc2828;
+  box-shadow: 0 1vw 4vw #2228;
+  opacity: 0;
+  transform: translateY(2vw);
+  animation: heroAppear 1.1s 0.2s ease forwards;
+}
+
+@keyframes heroAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  color: #fff;
+  font-family: 'Outfit', 'Montserrat', Arial, sans-serif;
+  font-size: 2.7vw;
+  font-weight: 800;
+  letter-spacing: 0.14vw;
+  text-align: center;
+  line-height: 1.13;
+  text-shadow: 0 0.5vw 2vw #222c, 0 0 1vw #fff3;
+}
+
+.hero-title span, .hero-location {
+  color: #0155a8;
+  letter-spacing: 0.22vw;
+  font-size: 3vw;
+  font-weight: 900;
+  display: inline-block;
+  margin-top: 0.5vw;
+}
+
+.hero-tagline {
+  color: #fff;
+  font-size: 1.15vw;
+  letter-spacing: 0.12vw;
+  margin-top: 1.2vw;
+  font-weight: 400;
+  opacity: 0.85;
+  text-shadow: 0 0 0.9vw #222c;
+}
+
+@media (max-width: 900px) {
+  .hero-title { font-size: 5vw; }
+  .hero-title span, .hero-location { font-size: 6vw; }
+  .hero-title-bg { padding: 5vw 2vw; border-radius: 4vw; }
+  .hero-tagline { font-size: 3vw; }
+  .hero-banner { height: 44vw; min-height: 140px; }
+}
+
+@media (max-width: 600px) {
+  .hero-title { font-size: 6.2vw; }
+  .hero-title span, .hero-location { font-size: 7vw; }
+  .hero-title-bg { padding: 6vw 2vw; border-radius: 5vw; }
+  .hero-tagline { font-size: 4vw; }
+  .hero-banner { height: 55vw; min-height: 100px; }
+}
+
+  
+
+  /* ABOUT SECTION SECOND PARAGRAPH YPHRESIES */
+.services-modern-section {
+  max-width: 68vw;
+  margin: 5vw auto 0 auto;
+  /*\ background: none;  <-- ΔΕΝ βάζεις background! */
+  /* border-radius: none; */
+  /* box-shadow: none; */
+  padding: 0;
+}
+
+.services-modern-title {
+  text-align: center;
+  font-size: 2.6vw;
+  color: #003366;
+  font-weight: 900;
+  margin-bottom: 2.6vw;
+  letter-spacing: 0.1vw;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+.services-list-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6vw;
+}
+
+/* Service cards έχουν μόνο αυτές το background! */
+.service-card {
+  background: linear-gradient(105deg, rgba(1, 60, 120, 0.96) 64%, rgba(61,34,116,0.85) 100%);
+  color: #fff;
+  border-radius: 1.3vw;
+  box-shadow: 0 0.4vw 1.8vw #00336633, 0 0.14vw 0.6vw #fff1 inset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vw 3vw;
+  margin-bottom: 1vw;
+  border-bottom: 4px solid #e02626;
+  transition:
+    box-shadow 0.24s cubic-bezier(.43,.05,.32,1.43),
+    transform 0.22s cubic-bezier(.45,.05,.32,1.33),
+    background 0.19s,
+    border-bottom 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  box-shadow: 0 2vw 4vw #00336655, 0 0.8vw 1vw #e0262635;
+  transform: translateY(-1vw) scale(1.04);
+  background: linear-gradient(105deg, rgba(0,51,102,0.99) 55%, rgba(61,34,116,0.94) 100%);
+  border-bottom: 5px solid #e02626;
+  cursor: pointer;
+}
+
+/* Προαιρετικά: μεγαλώνει και η φωτογραφία ελαφρώς */
+.service-card:hover .service-img {
+  transform: scale(1.13) rotate(-6deg);
+  box-shadow: 0 0.8vw 2vw #e0262640, 0 0.6vw 1vw #00336635;
+  border-color: #fff;
+  transition: transform 0.18s, box-shadow 0.17s, border-color 0.18s;
+}
+
+.service-title {
+  font-size: 1.65vw;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.01vw;
+}
+.service-desc {
+  color: #e6eefe;
+  font-size: 1.1vw;
+  margin-top: 0.5vw;
+  font-weight: 400;
+}
+.service-img {
+  width: 6vw;
+  height: 6vw;
+  min-width: 62px;
+  min-height: 62px;
+  max-width: 110px;
+  max-height: 110px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0.4vw 2vw #00336611;
+  transition: transform 0.18s, box-shadow 0.17s, border-color 0.18s;
+  overflow: hidden;
+  margin-left: 2vw;
+  border: 2.5px solid #e02626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+/* PRODUCTS PAGE  */
+body {
+  background: #f7fafd;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.products-section {
+  max-width: 94vw;
+  margin: 4vw auto 0 auto;
+  padding: 0 2vw 4vw 2vw;
+}
+
+.products-title {
+  text-align: center;
+  color: #003366;
+  font-size: 2.7vw;
+  font-weight: 900;
+  margin-bottom: 3vw;
+  letter-spacing: 0.08vw;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 2vw;
+}
+
+.product-card {
+  background: linear-gradient(117deg, rgba(0,51,102,0.97) 64%, rgba(61,34,116,0.87) 100%);
+  border-radius: 1.5vw;
+  box-shadow: 0 0.5vw 1.6vw #00336618, 0 0.12vw 0.6vw #fff1 inset;
+  padding: 1.2vw 1vw 2.4vw 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.22s, transform 0.22s, background 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  box-shadow: 0 2vw 3vw #00336633, 0 0.7vw 2vw #e0262613;
+  transform: translateY(-0.8vw) scale(1.038);
+  background: linear-gradient(117deg, rgba(0,51,102,1) 60%, rgba(61,34,116,0.97) 100%);
+  z-index: 2;
+}
+
+/* Μικρή “γυαλάδα” για premium look */
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: -7%;
+  left: -8%;
+  width: 66%;
+  height: 70%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.16) 32%, rgba(255,255,255,0.01) 100%);
+  z-index: 1;
+  border-radius: 1vw 4vw 8vw 2vw;
+  pointer-events: none;
+}
+
+.product-img {
+  width: 9vw;
+  height: 9vw;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0.3vw 1.2vw #00336618;
+  background: #fff;
+  margin-bottom: 1.4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+  transition: box-shadow 0.16s, transform 0.17s;
+}
+.product-card:hover .product-img {
+  box-shadow: 0 1.3vw 3vw #00336635, 0 0.5vw 2vw #e0262622;
+  transform: scale(1.07) rotate(-3deg);
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.15s;
+}
+.product-card:hover .product-img img {
+  transform: scale(1.09);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.product-name {
+  color: #fff;
+  font-size: 1.17vw;
+  font-weight: 700;
+  text-align: center;
+  margin: 0.7vw 0 1vw 0;
+  letter-spacing: 0.04vw;
+}
+
+.product-btn {
+  background: #e02626;
+  color: #fff;
+  border: none;
+  border-radius: 0.9vw;
+  padding: 0.7vw 2.4vw;
+  font-size: 1.03vw;
+  font-weight: 600;
+  letter-spacing: 0.08vw;
+  cursor: pointer;
+  margin-top: 0.2vw;
+  box-shadow: 0 0.13vw 0.7vw #e0262626;
+  transition: background 0.19s, color 0.19s, transform 0.18s;
+}
+.product-btn:hover {
+  background: #fff;
+  color: #e02626;
+  transform: scale(1.09);
+}
+
+.product-img-link, .product-btn {
+  text-decoration: none;
+  display: block;
+}
+
+
+@media (max-width: 900px) {
+  .products-title { font-size: 5.8vw; }
+  .product-img { width: 22vw; height: 22vw; min-width: 64px; min-height: 64px; }
+  .product-name { font-size: 3.3vw; }
+  .product-btn { font-size: 2.5vw; border-radius: 2vw; padding: 2vw 7vw; }
+}
+
+
+
+

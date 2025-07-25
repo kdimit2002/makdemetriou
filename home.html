@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAK Demetriou</title>
+  <link rel="icon" type="image/png" href="assets/MAK Demetriou R-05 Logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- 1. Bootstrap CSS πρώτα -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 2. δικό σου CSS μετά -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-5">
+    <div class="container-fluid">
+
+      <!-- Hamburger button -->
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="logo-container">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="assets/Mak_Demetriou_Logo.png" alt="Λογότυπο" height="140" style="object-fit: contain;">
+          </a>
+        </div>
+
+<ul class="navbar-nav gap-3 fs-5 ms-4 ms-lg-2">
+  <li class="nav-item menu-links">
+    <a class="nav-link fw-semibold text-dark" href="home.html">Αρχική</a>
+  </li>
+  <li class="nav-item menu-links">
+    <a class="nav-link fw-semibold text-dark" href="about.html">Ποιοι είμαστε</a>
+  </li>
+  <li class="nav-item menu-links">
+    <a class="nav-link fw-semibold text-dark" href="products.html">Products</a>
+  </li>
+  <li class="nav-item menu-links">
+    <a class="nav-link fw-semibold text-dark" href="contact.html">Επικοινωνία</a>
+  </li>
+</ul>
+      </div>
+    </div>
+  </nav>
+
+
+<body class="body-main">
+  <!-- Container-fluid με p-0 για να πιάσει όλο το πλάτος -->
+  <div class="container-fluid p-0">
+    <section class="main d-flex align-items-center justify-content-center">
+      <div class="overlay"></div>
+      <div class="text-center text-white hero-content">
+        <h1>Κορυφαίος Επαγγελματικός Εξοπλισμός Κουζίνας</h1>
+        <p class="lead">Αξιοπιστία – Ποιότητα – Εμπειρία</p>
+      </div>
+    </section>
+  </div>
+</body>
+
+<section class="intro-section">
+  <div class="container">
+    <h2>Introducing Cyprus’ most innovative commercial kitchen equipment</h2>
+    <p>
+      With Rational iCombi/iVario, Polaris Blast Chiller, and ATA Performance Line Dishwasher, you have the productivity of an entire team at your fingertips. Relax knowing your kitchen runs smoothly, efficiently, and reliably—one machine doing the job of many.
+    </p>
+  </div>
+</section>
+
+
+<section class="rational-logo-section">
+  <img
+    src="assets/rational.png"
+    alt="Rational logo"
+    class="rational-logo-img"
+  >
+</section>
+
+
+<section class="rational-icombi-layout">
+  <div class="text-area">
+    <h2>Λίγα λόγια για το iCombi Pro</h2>
+    <p>Το iCombi Pro είναι το καινοτόμο φούρνος ατμού της RATIONAL που συνδυάζει ευελιξία, οικονομία ενέργειας και αψεγάδιαστη ποιότητα ψησίματος κάθε φορά.</p>
+    <p>Με έξυπνα προγράμματα ψησίματος και αποθήκευση συνταγών, απλοποιεί τη ζωή στην κουζίνα και εξασφαλίζει συνεπή αποτελέσματα.</p>
+  </div>
+  <div class="image-area">
+    <img
+      src="assets/rational-icombi-ivario.jpg"
+      alt="rational-icombi-ivario"
+      class="rational-icombi-ivario-img"
+    >
+  </div>
+</section>
+
+<section class="polaris-logo-section">
+  <img
+    src="assets/polaris_logo.png"
+    alt="Polaris Logo"
+    class="polaris-logo-img"
+  >
+</section>
+
+
+<section class="polaris-section">
+  <img
+    src="assets/polaris.png"
+    alt="Polaris"
+    class="polaris-img"
+  >
+
+    <img
+      src="assets/geniouslogical.jpg"
+      alt="Genious Logical"
+      class="genious-img"
+    >
+
+</section>
+
+<!-- Logo επάνω, στο κέντρο -->
+<section class="ataslr-logo-section">
+  <img
+    src="assets/ataslr_logo.png"
+    alt="Ataslr Logo"
+    class="ataslr-logo-img"
+  >
+</section>
+
+<section class="ataslr-section">
+  <div class="ataslr-text">
+    <h2>Performance Line</h2>
+    <p>The Performance Line delivers top-tier washing performance. 
+      It's the ideal solution for all kinds of stubborn soil, thanks to its high power and the ability to fine-tune wash cycles based on the type of dirt.</p>
+  </div>
+  <div class="ataslr-image">
+    <img
+      src="assets/ataslr.jpg"
+      alt="Ataslr"
+      class="ataslr-img"
+    >
+  </div>
+</section>
+
+
+<!-- Youtube videos -->
+
+
+<section class="video-carousel-section py-5">
+  <div
+    id="videoCarousel"
+    class="carousel slide mx-auto"
+    data-bs-ride="false"
+    data-bs-interval="false"
+  >
+    <div class="carousel-inner">
+      <!-- Item 1 (πλέον το πρώτο από τα δύο) -->
+      <div class="carousel-item active">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/aYTjxnebjn4"
+            title="Video 2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/WvNwjxmBohQ"
+            title="Video 3"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#videoCarousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#videoCarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+
+
+
+<section class="logo-slider-section">
+  <div class="logo-slider">
+    <div class="slide-track">
+      <div class="slide"><img src="assets/rational.png"        alt="Rational"></div>
+      <div class="slide"><img src="assets/polaris_logo.png"    alt="Polaris"></div>
+      <div class="slide"><img src="assets/ataslr_logo.png"     alt="Ataslr"></div>
+      <div class="slide"><img src="assets/gico_logo.JPG"   alt="Gico"></div>
+      <div class="slide"><img src="assets/aristaco.png"    alt="Aristaco"></div>
+      <div class="slide"><img src="assets/blue_seal.png"   alt="Blue Seal"></div>
+      <div class="slide"><img src="assets/casta.png"       alt="Casta"></div>
+      <div class="slide"><img src="assets/fimar.png"       alt="Fimar"></div>
+      <div class="slide"><img src="assets/inomak.png"      alt="Inomak"></div>
+      <div class="slide"><img src="assets/jtc.png"         alt="JTC"></div>
+      <div class="slide"><img src="assets/kopa.jpg"        alt="Kopa"></div>
+      <div class="slide"><img src="assets/pasquini.png"    alt="Pasquini"></div>
+      <div class="slide"><img src="assets/offcar.png"      alt="Offcar"></div>
+      <div class="slide"><img src="assets/sirman.png"      alt="Sirman"></div>
+      <div class="slide"><img src="assets/tecfrigo.png"    alt="Tecfrigo"></div>
+
+      <!-- αντιγράφουμε ξανά για infinite loop -->
+      <div class="slide"><img src="assets/rational.png"        alt="Rational"></div>
+      <div class="slide"><img src="assets/polaris_logo.png"    alt="Polaris"></div>
+      <div class="slide"><img src="assets/ataslr_logo.png"     alt="Ataslr"></div>
+      <div class="slide"><img src="assets/gico_logo.JPG"   alt="Gico"></div>
+      <div class="slide"><img src="assets/aristaco.png"    alt="Aristaco"></div>
+      <div class="slide"><img src="assets/blue_seal.png"   alt="Blue Seal"></div>
+      <div class="slide"><img src="assets/casta.png"       alt="Casta"></div>
+      <div class="slide"><img src="assets/fimar.png"       alt="Fimar"></div>
+      <div class="slide"><img src="assets/inomak.png"      alt="Inomak"></div>
+      <div class="slide"><img src="assets/jtc.png"         alt="JTC"></div>
+      <div class="slide"><img src="assets/kopa.jpg"        alt="Kopa"></div>
+      <div class="slide"><img src="assets/pasquini.png"    alt="Pasquini"></div>
+      <div class="slide"><img src="assets/offcar.png"      alt="Offcar"></div>
+      <div class="slide"><img src="assets/sirman.png"      alt="Sirman"></div>
+      <div class="slide"><img src="assets/tecfrigo.png"    alt="Tecfrigo"></div>
+    </div>
+  </div>
+</section>
+</body>
+
+<footer class="footer bg-dark text-white py-4">
+  <div class="social-links">
+    <a href="https://www.facebook.com/profile.php?id=61568395726106"
+       target="_blank" rel="noopener"
+       class="social-icon facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://www.instagram.com/mak_demetriou/"
+       target="_blank" rel="noopener"
+       class="social-icon instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2025 MAK Demetriou. All rights reserved.
+  </div>
+</footer>
+
+
+  <!-- <script>
+    function loadPage(page) {
+      fetch(page + ".html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("main-content").innerHTML = html;
+        });
+    }
+    window.onload = () => loadPage("home");
+  </script> -->
+
+  <!-- Bootstrap JS στο τέλος -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
