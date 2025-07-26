@@ -33,7 +33,7 @@
 }
 
 .navbar-nav .nav-link {
-  font-size: var(--nav-font-size);
+  font-size: clamp(1.6rem, 1.8vw, 2.0rem);
   transition: color 0.3s ease;
 }
 
@@ -557,22 +557,22 @@
   align-items: center;    /* όλα τα logos στο ίδιο ύψος */
 }
 
-/* 2. Κάθε slide “μας” γίνεται flex για επιπλέον στοίχιση */
 .logo-slider .slide {
+  width: 15vw;      /* 18% του πλάτους της οθόνης */
+  height: 10vh;     /* 10% του ύψους της οθόνης */
+  padding: 0 0.05vw;
   display: flex;
-  align-items: center;    /* κάθε logo στο κέντρο κάθετους */
-  justify-content: center;/* προαιρετικά, στο κέντρο οριζόντια */
-  
-  /* π.χ. ύψος 100px ώστε όλα να “κουμπώσουν” σε ίδιο πλαίσιο */
-  height: 100px;
-  margin-right: 2rem;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 3. Φροντίζουμε τα images να μην ξεπερνούν το max-height */
 .logo-slider .slide img {
-  max-height: 100%;
-  width: auto;            /* κρατάμε αναλογίες */
+  max-height: 8vh;  /* να μην ξεπερνά το 80% του box */
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
+
 
 .slide-track {
   display: flex;
