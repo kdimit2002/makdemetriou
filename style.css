@@ -4,11 +4,11 @@
 /* ================= ΟΡΙΣΜΟΣ ΜΕΤΑΒΛΗΤΩΝ ΓΙΑ ΕΥΚΟΛΟ TWEAKING ================= */
 :root {
   /* διάκενο μεταξύ links */
-  --nav-gap:          1.5rem;
+  --nav-gap:          5rem;
   /* font-size των links */
   --nav-font-size:    1.90rem;
   /* αριστερό margin του menu (mobile/tablet) */
-  --nav-margin-base:  1.5rem;   /* αντί για ms-4 */
+  --nav-margin-base:  6rem;   /* αντί για ms-4 */
   /* αριστερό margin του menu (desktop ≥992px) */
   --nav-margin-lg:    0.5rem;   /* αντί για ms-lg-2 */
 }
@@ -22,6 +22,7 @@
 
 
 .logo-container img {
+  text-align: center;
   height: 120px; /* αρχικό ύψος για desktop */
   max-width: 100%;
   object-fit: contain;
@@ -30,12 +31,18 @@
 /* Σε μικρές οθόνες, μικραίνουμε το ύψος */
 @media (max-width: 767.98px) {
   .logo-container img {
-    height: 70px;
+    height: 60px;
   }
 }
 
 /* Σε μεσαίες οθόνες */
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .logo-container img {
+    height: 80px;
+  }
+}
+/* Σε μεσαίες οθόνες */
+@media (min-width: 992px) and (max-width: 2200px) {
   .logo-container img {
     height: 90px;
   }
