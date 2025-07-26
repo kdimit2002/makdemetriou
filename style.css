@@ -19,6 +19,30 @@
   margin-right: 1rem;
 }
 
+
+
+.logo-container img {
+  height: 120px; /* αρχικό ύψος για desktop */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Σε μικρές οθόνες, μικραίνουμε το ύψος */
+@media (max-width: 767.98px) {
+  .logo-container img {
+    height: 70px;
+  }
+}
+
+/* Σε μεσαίες οθόνες */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .logo-container img {
+    height: 90px;
+  }
+}
+
+
+
 .menu-links {
   display: flex;
   gap: var(--nav-gap);
