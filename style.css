@@ -33,7 +33,7 @@
 
 
 .navbar-brand img {
-  height: 7vw;
+  height: 5vw;
   max-height: 100px;
 }
 
@@ -71,7 +71,7 @@
 @media (min-width: 992px){
 
 .menu-links {
-  padding-left: 3.0rem;
+  padding-left: 4.0rem;
 }
 
 }
@@ -91,7 +91,7 @@
 }
 
 .navbar-nav .nav-link {
-  font-size: clamp(0.9rem, 1.5vw, 1.4rem);
+  font-size: clamp(0.5rem, 3.0vw, 1rem);
   transition: color 0.3s ease;
 }
 .navbar-nav .nav-link:hover {
@@ -176,11 +176,11 @@
 }
 
 .hero-content h1 {
-  font-size: clamp(1.25rem,3.25vw,2.25rem);
+  font-size: clamp(1.00rem,3.00vw,2.00rem);
 }
 
 .hero-content p.lead {
-  font-size: clamp(1.00rem,2.75vw,1.75rem);
+  font-size: clamp(0.75rem,2.25vw,1.25rem);
 }
 
 /* Responsive ύψος hero */
@@ -218,7 +218,7 @@
 }
 .intro-section h2 {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: clamp(2.0rem,2.5vw,2.75rem);
+  font-size: clamp(2.00rem,1.75rem,2.25rem);
   font-weight: 600;
   line-height: 1.2;
   color: #002E5B;
@@ -226,7 +226,7 @@
 }
 .intro-section p {
   font-family: 'Open Sans', sans-serif;
-  font-size: clamp(0.75rem,1.75vw,1.75rem);
+  font-size: clamp(1.00rem,1.5vw,1.25rem);
   line-height: 1.6;
   margin: 0 auto;
   max-width: 90%;
