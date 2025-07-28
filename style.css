@@ -33,14 +33,14 @@
 
 
 .navbar-brand img {
-  height: 8vw;
-  max-height: 90px;
+  height: 7vw;
+  max-height: 100px;
 }
 
 @media (max-width: 991.98px) {
   .navbar-brand img {
-    height: 13vw;
-    max-height: 70px;
+    height: 17vw;
+    max-height: 83px;
   }
 }
 
