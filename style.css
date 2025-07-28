@@ -91,9 +91,22 @@
 }
 
 .navbar-nav .nav-link {
-  font-size: clamp(0.7rem, 1.5vw, 1.4rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.4rem);
   transition: color 0.3s ease;
 }
+.navbar-nav .nav-link:hover {
+  background-color: black !important;
+  color: white !important;
+  border-radius: 5px; /* για λίγο ωραίο στρογγυλεμένο εφέ */
+  padding: 0.25rem 0.5rem; /* για να φαίνεται το background γύρω από το κείμενο */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 
 
   /* FOOTER */
@@ -162,6 +175,14 @@
   padding: 0 1rem;
 }
 
+.hero-content h1 {
+  font-size: clamp(1.25rem,2.50vw,2.25rem);
+}
+
+.hero-content p.lead {
+  font-size: clamp(1.00rem,2.0vw,1.75rem);
+}
+
 /* Responsive ύψος hero */
 @media (max-width: 767.98px) {
   .main {
@@ -191,12 +212,13 @@
 .intro-section .container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
-  text-align: center;
+    padding: 8rem 6rem;
+    max-width: 80%;
+      text-align: center;
 }
 .intro-section h2 {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 2rem;
+  font-size: clamp(2.0rem,2.5vw,3.00rem);
   font-weight: 600;
   line-height: 1.2;
   color: #002E5B;
@@ -204,7 +226,7 @@
 }
 .intro-section p {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(0.75rem,1.75vw,2.00rem);
   line-height: 1.6;
   margin: 0 auto;
   max-width: 90%;
@@ -212,23 +234,23 @@
 }
 
 /* ─────────────── Tablet (768px–1023px) ─────────────── */
-@media (min-width: 768px) and (max-width: 1999px) {
+  @media (max-width: 991.8px) {
   .intro-section .container {
-    padding: 4rem 2rem;
-    max-width: 80%;
+    padding: 2rem 1.0rem;
+    max-width: 85%;
   }
   .intro-section h2 {
-    font-size: 2.55rem;
+    font-size: clamp(1.25rem,2vw,1.75rem);
   }
   .intro-section p {
-    font-size: 1.5rem;
-    max-width: 75%;
+    font-size: clamp(0.75rem,2vw,1.25rem);
+    max-width: 80%;
   }
-}
+}  
 
 
 /* ─────────────── Wide (≥1440px) ─────────────── */
-@media (min-width: 2000px) {
+/* @media (min-width: 2000px) {
   .intro-section .container {
     padding: 6rem 4rem;
     max-width: 80%;
@@ -240,7 +262,7 @@
     font-size: 2.675rem;
     max-width: 75%;
   }
-}
+} */
 
 
 
