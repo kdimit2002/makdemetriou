@@ -171,16 +171,18 @@
 .hero-content {
   position: relative;
   z-index: 2;                           /* πάνω από το overlay */
-  max-width: 800px;                     /* να μην απλωθεί υπερβολικά το κείμενο */
-  padding: 0 1rem;
+  /* max-width: 800px;                     να μην απλωθεί υπερβολικά το κείμενο */
+  padding-left: 8vw;
+  padding-right: 8vw;
+  /* padding: 0 1rem; */
 }
 
 .hero-content h1 {
-  font-size: clamp(1.00rem,3.00vw,2.00rem);
+  font-size: clamp(1.35rem,3.50vw,2.25rem);
 }
 
 .hero-content p.lead {
-  font-size: clamp(0.75rem,2.25vw,1.25rem);
+  font-size: clamp(0.90rem,2.75vw,1.50rem);
 }
 
 /* Responsive ύψος hero */
