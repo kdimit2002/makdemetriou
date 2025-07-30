@@ -269,7 +269,7 @@
 
 /* Logo rational στο κέντρο, με μικρή απόσταση πάνω/κάτω */
 .rational-logo-section {
-  padding-top: 10rem;
+  padding-top:  clamp(0.25rem, 3vw, 4rem);
   text-align: center;
   margin: 2rem 0;      /* 2rem πάνω / κάτω – πειραματίσου αν θες άλλο διάκενο */
   overflow: hidden;    /* για να μην πετάει έξω ό,τι ξεχειλίζει */
@@ -278,14 +278,14 @@
 /* Fluid sizing για το logo */
 .rational-logo-img {
   display: inline-block;
-  width: clamp(25%, 8vw, 25%);
+  width: clamp(20%, 8vw, 20%);
   /* ποτέ μικρότερο από 120px, ιδανικά 12% του viewport πλάτους, ούτε πάνω από 240px */
   height: auto;
 }
 
 .rational-icombi-layout {
   display: grid;
-  grid-template-columns: 50% 50%;  /* 60% πλάτος στο κείμενο, 40% στην εικόνα */
+  grid-template-columns: 55% 45%;  /* 60% πλάτος στο κείμενο, 40% στην εικόνα */
   column-gap: 0.2vw;               /* λίγο κενό ανάμεσα στις δύο στήλες */
   align-items: start;             /* στοίχιση στην κορυφή */
   overflow: hidden;               /* κρύβει ό,τι ξεχειλίζει */
@@ -294,47 +294,28 @@
 /* ─────────────── Default (laptop/desktop) ─────────────── */
 .text-area {
   font-family: 'Inter', sans-serif;
-  padding-top: 25vh;     /* 30% του ύψους του viewport */
-  padding-left: 2.5vw;   /* 2.5% του πλάτους του viewport */
+  padding-top: clamp(8rem,10vh,10rem);     /* 30% του ύψους του viewport */
+  padding-left: 3.75vw;   /* 2.5% του πλάτους του viewport */
 }
 
 
-/* ─────────────── Tablet (768px – 1023px) ─────────────── */
-@media (min-width: 768px) and (max-width: 1800px) {
-  .text-area {
-    padding-top: 8vh;   /* κατεβάζουμε λιγάκι το μπλοκ */
-    padding-left: 4vw;   /* αυξάνουμε λίγο το αριστερό κενό */
-  }
-}
+
 
 /* ─────────────── Mobile (0 – 767px) ─────────────── */
-@media (max-width: 767px) {
+@media (max-width: 800px) {
   .text-area {
-    padding-top: 4vh;   /* δεν το αφήνουμε να πάει troppo ψηλά */
+    padding-top: 5vh;   /* δεν το αφήνουμε να πάει troppo ψηλά */
     padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
-  }
-
-  /* Προαιρετικά, για να γίνει full-width κάτω από tablet */
-  .rational-icombi-layout {
-    display: block;
-  }
-  .image-area {
-    margin-top: 2rem;
-    text-align: center;
-  }
-  .rational-icombi-ivario-img {
-    width: 80%;          /* μικραίνουμε την εικόνα στο mobile */
-    left: 10%;
   }
 }
 
 
 .text-area h2 {
-  font-size: 3.5vw;       /* 6% του πλάτους του viewport */
+  font-size: clamp(0.75rem,2.5vw,3.0rem);       /* 6% του πλάτους του viewport */
 }
 
 .text-area p {
-  font-size: 1.25vw;     /* 2.5% του πλάτους του viewport */
+  font-size: clamp(0.25rem,1.25vw,1.25rem);     /* 2.5% του πλάτους του viewport */
   line-height: 1.6;
   margin-bottom: 1vh;  /* διάκενο ανάμεσα στις παραγράφους */
 }
