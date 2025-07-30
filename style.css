@@ -294,7 +294,7 @@
 /* ─────────────── Default (laptop/desktop) ─────────────── */
 .text-area {
   font-family: 'Inter', sans-serif;
-  padding-top: clamp(8rem,10vh,10rem);     /* 30% του ύψους του viewport */
+  padding-top: 8vw;     /* clamp(8rem,4vh,13rem); 30% του ύψους του viewport */
   padding-left: 3.75vw;   /* 2.5% του πλάτους του viewport */
 }
 
@@ -302,9 +302,9 @@
 
 
 /* ─────────────── Mobile (0 – 767px) ─────────────── */
-@media (max-width: 800px) {
+@media (max-width: 350px) {
   .text-area {
-    padding-top: 5vh;   /* δεν το αφήνουμε να πάει troppo ψηλά */
+    padding-top: 6vw;   /*δεν το αφήνουμε να πάει troppo ψηλά */
     padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
   }
 }
