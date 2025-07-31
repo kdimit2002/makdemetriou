@@ -268,97 +268,94 @@
 
 
 
-
-/* Logo rational στο κέντρο, με μικρή απόσταση πάνω/κάτω */
+/* ----------- ΛΟΓΟΤΥΠΟ ----------- */
 .rational-logo-section {
-  padding-top:  clamp(0.25rem, 3vw, 4rem);
+  padding-top: clamp(1rem, 3vw, 4rem);
   text-align: center;
-  margin: 2rem 0;      /* 2rem πάνω / κάτω – πειραματίσου αν θες άλλο διάκενο */
-  overflow: hidden;    /* για να μην πετάει έξω ό,τι ξεχειλίζει */
+  margin: 2rem 0;
+  overflow: hidden;
 }
 
-/* Fluid sizing για το logo */
 .rational-logo-img {
   display: inline-block;
-  width: clamp(8rem,17vw,20rem);
-/* width: clamp(20%, 8vw, 40%); */
-  /* ποτέ μικρότερο από 120px, ιδανικά 12% του viewport πλάτους, ούτε πάνω από 240px */
+  width: clamp(10rem, 18vw, 20rem);
   height: auto;
 }
 
-
-
+/* ----------- ΚΕΝΤΡΙΚΗ ΔΙΑΤΑΞΗ ----------- */
 .rational-icombi-layout {
   display: grid;
-  grid-template-columns: 55% 45%;  /* 60% πλάτος στο κείμενο, 40% στην εικόνα */
-  column-gap: 0.2vw;               /* λίγο κενό ανάμεσα στις δύο στήλες */
-  align-items: start;             /* στοίχιση στην κορυφή */
-  overflow: hidden;               /* κρύβει ό,τι ξεχειλίζει */
-  padding: 0rem;                  /* ίδιο με py-5 */
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 0 1rem;
 }
-/* ─────────────── Default (laptop/desktop) ─────────────── */
+
 .text-area {
   font-family: 'Inter', sans-serif;
-  padding-top: 7.5vw;     /* clamp(8rem,4vh,13rem); 30% του ύψους του viewport */
-  padding-left: 3.75vw;   /* 2.5% του πλάτους του viewport */
+  padding-top: 6vw;
+  padding-left: 2vw;
 }
-
-
-
-@media (max-width: 677px) {
-  .text-area {
-    padding-top: clamp(0.5rem,3vw,2rem);   /*δεν το αφήνουμε να πάει troppo ψηλά */
-    padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
-  }
-}
-@media (max-width: 562px) {
-  .text-area {
-    padding-top: clamp(0.5rem,1.25vw,5rem);   /*δεν το αφήνουμε να πάει troppo ψηλά */
-    padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
-  }
-}
-/* ─────────────── Mobile (0 – 767px) ─────────────── */
-@media (max-width: 350px) {
-  .text-area {
-    padding-top: 1vw;   /*δεν το αφήνουμε να πάει troppo ψηλά */
-    padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
-  }
-}
-
 
 .text-area h2 {
-  font-size: clamp(1.25rem,3.00vw,2.5rem);       /* 6% του πλάτους του viewport */
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: 1rem;
 }
 
 .text-area p {
-  font-size: clamp(0.6rem,1.25vw,1.00rem);     /* 2.5% του πλάτους του viewport */
-  line-height: 1.6;
-  margin-bottom: 1vh;  /* διάκενο ανάμεσα στις παραγράφους */
+  font-size: clamp(0.9rem, 1.25vw, 1rem);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
-
+/* ----------- ΕΙΚΟΝΑ ----------- */
 .rational-icombi-ivario-section {
   position: relative;
-  overflow: hidden;    /* κρύβει το κομμάτι της εικόνας που βγαίνει έξω */
-  padding: 3rem 0;     /* διατηρεί το py-5 (προαιρετικό) */
+  padding: 2rem 0;
+  overflow: hidden;
 }
 
 .rational-icombi-ivario-img {
-  display: block;                /* ξεφορτωνόμαστε inline-gap */
-  width: 120% !important;        /* 20% μεγαλύτερη από το parent */
-  max-width: none !important;    /* ακυρώνει Bootstrap max-width:100% */
-  height: auto;                  /* διατηρεί αναλογίες */
-  margin-left: 0% !important;   /* σπρώχνει τη «μεγαλωμένη» εικόνα δεξιά */
+  width: 110%;
+  max-width: none;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+  .rational-icombi-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 
-@media (max-width: 530px) {
+  .text-area {
+    padding-top: 4vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+
   .rational-icombi-ivario-img {
-    padding-top:  calc(5rem - 12vw); /* padding gets larger as viewport shrinks */
-    }
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
+@media (max-width: 400px) {
+  .text-area h2 {
+    font-size: 1.25rem;
+  }
 
+  .text-area p {
+    font-size: 0.9rem;
+  }
+
+  .rational-icombi-ivario-img {
+    max-height: 280px;
+  }
+}
 
 
 
