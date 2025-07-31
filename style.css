@@ -242,10 +242,10 @@
     max-width: 85%;
   }
   .intro-section h2 {
-    font-size: clamp(1.50rem,2vw,1.75rem);
+    font-size: clamp(1.40rem,2vw,1.75rem);
   }
   .intro-section p {
-    font-size: clamp(1.00rem,2vw,1.25rem);
+    font-size: clamp(0.90rem,2vw,1.25rem);
     max-width: 80%;
   }
 }  
@@ -280,10 +280,13 @@
 /* Fluid sizing για το logo */
 .rational-logo-img {
   display: inline-block;
-  width: clamp(20%, 8vw, 20%);
+  width: clamp(8rem,17vw,20rem);
+/* width: clamp(20%, 8vw, 40%); */
   /* ποτέ μικρότερο από 120px, ιδανικά 12% του viewport πλάτους, ούτε πάνω από 240px */
   height: auto;
 }
+
+
 
 .rational-icombi-layout {
   display: grid;
@@ -313,11 +316,11 @@
 
 
 .text-area h2 {
-  font-size: clamp(0.75rem,2.5vw,3.0rem);       /* 6% του πλάτους του viewport */
+  font-size: clamp(0.75rem,3.25vw,2.5rem);       /* 6% του πλάτους του viewport */
 }
 
 .text-area p {
-  font-size: clamp(0.25rem,1.25vw,1.25rem);     /* 2.5% του πλάτους του viewport */
+  font-size: clamp(0.25rem,1.5vw,1.00rem);     /* 2.5% του πλάτους του viewport */
   line-height: 1.6;
   margin-bottom: 1vh;  /* διάκενο ανάμεσα στις παραγράφους */
 }
