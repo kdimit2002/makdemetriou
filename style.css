@@ -299,28 +299,39 @@
 /* ─────────────── Default (laptop/desktop) ─────────────── */
 .text-area {
   font-family: 'Inter', sans-serif;
-  padding-top: 8vw;     /* clamp(8rem,4vh,13rem); 30% του ύψους του viewport */
+  padding-top: 7.5vw;     /* clamp(8rem,4vh,13rem); 30% του ύψους του viewport */
   padding-left: 3.75vw;   /* 2.5% του πλάτους του viewport */
 }
 
 
 
-
+@media (max-width: 677px) {
+  .text-area {
+    padding-top: clamp(0.5rem,3vw,2rem);   /*δεν το αφήνουμε να πάει troppo ψηλά */
+    padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
+  }
+}
+@media (max-width: 562px) {
+  .text-area {
+    padding-top: clamp(0.5rem,1.25vw,5rem);   /*δεν το αφήνουμε να πάει troppo ψηλά */
+    padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
+  }
+}
 /* ─────────────── Mobile (0 – 767px) ─────────────── */
 @media (max-width: 350px) {
   .text-area {
-    padding-top: 6vw;   /*δεν το αφήνουμε να πάει troppo ψηλά */
+    padding-top: 1vw;   /*δεν το αφήνουμε να πάει troppo ψηλά */
     padding-left: 6vw;   /* πιο μεγάλο margin-left ώστε να μη «κολλάει» στην άκρη */
   }
 }
 
 
 .text-area h2 {
-  font-size: clamp(0.75rem,3.25vw,2.5rem);       /* 6% του πλάτους του viewport */
+  font-size: clamp(1.25rem,3.00vw,2.5rem);       /* 6% του πλάτους του viewport */
 }
 
 .text-area p {
-  font-size: clamp(0.25rem,1.5vw,1.00rem);     /* 2.5% του πλάτους του viewport */
+  font-size: clamp(0.6rem,1.25vw,1.00rem);     /* 2.5% του πλάτους του viewport */
   line-height: 1.6;
   margin-bottom: 1vh;  /* διάκενο ανάμεσα στις παραγράφους */
 }
@@ -340,6 +351,12 @@
   margin-left: 0% !important;   /* σπρώχνει τη «μεγαλωμένη» εικόνα δεξιά */
 }
 
+
+@media (max-width: 530px) {
+  .rational-icombi-ivario-img {
+    padding-top:  calc(5rem - 12vw); /* padding gets larger as viewport shrinks */
+    }
+}
 
 
 
