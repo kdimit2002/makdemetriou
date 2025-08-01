@@ -447,23 +447,30 @@
 
 @media (max-width: 418px) {
     .polaris-img {
-    width: clamp(10rem, 14vw,17rem);       /* μικρό για κινητά */
+    width: clamp(10rem, 14vw,15rem);       /* μικρό για κινητά */
     margin: 0 0 0 0.5rem; /* μειώνουμε περιθώρια */
+      transform: translateX(1%);;  /* πάει λίγο δεξιά */
+
   }
   .genious-img {
-    width: 55%;      /* μεγαλώνει */
+    width: 50%;      /* μεγαλώνει */
     max-width: none !important;
+          transform: translateX(0%);;  /* πάει λίγο δεξιά */
+
 
   }
 }
 @media (max-width: 350px) {
   .polaris-img {
-    width: clamp(8rem, 15vw,20rem);       /* μικρό για κινητά */
+    width: 108%;       /* μικρό για κινητά */
     margin: 0 0 0 0rem; /* μειώνουμε περιθώρια */
+    transform: translateX(3%);;  /* πάει λίγο δεξιά */
+
   }
   .genious-img {
-    width: 55%;      /* μεγαλώνει */
+    width: 52%;      /* μεγαλώνει */
     max-width: none !important;
+          transform: translateX(-2%);;  /* πάει λίγο δεξιά */
 
   }
 }
