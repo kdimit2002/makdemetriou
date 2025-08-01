@@ -294,10 +294,9 @@
   column-gap: 0.2vw;               /* λίγο κενό ανάμεσα στις δύο στήλες */
   align-items: start;             /* στοίχιση στην κορυφή */
   overflow: hidden;               /* κρύβει ό,τι ξεχειλίζει */
-  border-radius: 12px;
   padding: 2rem 1rem;
   margin: 1rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 /* ─────────────── Default (laptop/desktop) ─────────────── */
 .text-area {
@@ -375,30 +374,23 @@
   }
 }
 
-
+  /* POLARIS GENIOUS LOGICAL AREA */
 
 /* κεντράρει το logo και δίνει κενό από κάτω */
 .polaris-logo-section {
   text-align: center;
   margin: 3rem 0;       /* 3rem πάνω ΚΑΙ κάτω, πειραματίσου αν θες άλλο διάκενο */
   overflow: hidden;
-  padding-top: 10rem;    /* αύξησε από 3rem σε 5rem ή ό,τι θες */
-
+  padding-top:  clamp(0.25rem, 3vw, 4rem);
 }
 
 /* κλιμακωτό μέγεθος για το logo */
 .polaris-logo-img {
   display: inline-block;
-  width: clamp(40%, 8vw, 40%);
+  width: clamp(13rem, 25vw,23rem);
   /* ποτέ μικρότερο από 150px, ιδανικά 10% του viewport, ούτε πάνω από 300px */
   height: auto;
 }
-
-
-
-
-
-
 
 
 
@@ -407,7 +399,6 @@
   display: flex;
   align-items: flex-start;        /* ευθυγράμμιση πάνω-πάνω */
   justify-content: space-between; /* Polaris αριστερά, genious-wrapper δεξιά */
-  padding: clamp(1rem, 5vh, 3rem) 2.5vw; /* fluid padding πάνω/κάτω & αριστερά/δεξιά */
   overflow: hidden;
 }
 
@@ -419,17 +410,71 @@
 
 .polaris-img {
   display: block;
-  width: clamp(40%, 50vw, 60%);
+  width: clamp(15rem, 50vw,40rem);
   height: auto;
+  transform: translateX(5%);  /* πάει λίγο δεξιά */
 }
+
+
 /* Μεγάλη Genious δεξιά: από 30–40% → 35–50% */
 .genious-img {
   display: block;
   width: clamp(35%, 25vw, 50%);
   height: auto;
+  transform: translateX(-5%); /* πάει λίγο αριστερά */
+  width: 40%;        /* μπορείς να το αυξομειώσεις */
+  height: auto;
+  display: block;
+  margin-left: auto; /* την σπρώχνει δεξιά */
 }
 
 
+
+/* Responsive αλλαγή στα 768px */
+@media (max-width: 768px) {
+  .polaris-img {
+  width: clamp(12rem, 15vw,20rem);
+  }
+  .genious-img {
+    width: 60%;         /* μεγαλώνει */
+    margin: 1rem 0.6rem 0.5rem 0.2rem; /* μειώνουμε περιθώρια */
+  }
+}
+
+/* Responsive αλλαγή στα 480px (κινητά) */
+@media (max-width: 480px) {
+  .polaris-img {
+    width: clamp(10rem, 15vw,15rem);       /* μικρό για κινητά */
+    margin: 1rem 0.2rem 0 1rem; /* μειώνουμε περιθώρια */
+  }
+  .genious-img {
+    width: 65%;         /* μεγαλώνει */
+    margin: 1rem 0.5rem 0 0.2rem; /* μειώνουμε περιθώρια */
+  }
+}
+
+@media (max-width: 418px) {
+    .polaris-img {
+    width: clamp(10rem, 14vw,17rem);       /* μικρό για κινητά */
+    margin: 0 0 0 0.5rem; /* μειώνουμε περιθώρια */
+  }
+  .genious-img {
+    width: 55%;      /* μεγαλώνει */
+    max-width: none !important;
+
+  }
+}
+@media (max-width: 350px) {
+  .polaris-img {
+    width: clamp(8rem, 15vw,20rem);       /* μικρό για κινητά */
+    margin: 0 0 0 0rem; /* μειώνουμε περιθώρια */
+  }
+  .genious-img {
+    width: 55%;      /* μεγαλώνει */
+    max-width: none !important;
+
+  }
+}
 
 
 
