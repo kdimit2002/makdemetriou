@@ -294,11 +294,18 @@
   column-gap: 0.2vw;               /* λίγο κενό ανάμεσα στις δύο στήλες */
   align-items: start;             /* στοίχιση στην κορυφή */
   overflow: hidden;               /* κρύβει ό,τι ξεχειλίζει */
-  padding: 0rem;                  /* ίδιο με py-5 */
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  margin: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 /* ─────────────── Default (laptop/desktop) ─────────────── */
 .text-area {
   font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding: 0 1.5rem;  /* λίγο padding αριστερά-δεξιά */
+  text-align: center; /* σε mobile η κεντραρισμένη ανάγνωση είναι πιο ξεκούραστη */
   padding-top: calc(5rem + 2vw);
   padding-left: 3vw;
   text-align: center;
@@ -329,12 +336,10 @@
 }
 
 .rational-icombi-ivario-img {
-  width: 110%;
-  max-width: none;
+   max-width: 90%;
   height: auto;
-  display: block;
-  margin: 0 auto;
-  padding-top: clamp(1rem, 4vw, 3rem); /* responsive padding */
+  margin: 1.5rem auto 0 auto;
+  display: block;  padding-top: clamp(1rem, 4vw, 3rem); /* responsive padding */
 }
 
 /* ----------- RESPONSIVE ----------- */
