@@ -434,7 +434,7 @@
 /* Responsive αλλαγή στα 768px */
 @media (max-width: 768px) {
   .polaris-img {
-  width: 85%;
+  width: 95%;
   transform: translateX(10%);  /* πάει λίγο δεξιά */
   }
   .genious-img {
@@ -446,23 +446,20 @@
 }
 
 @media (max-width: 418px) {
-    .polaris-img {
-    width: clamp(10rem, 14vw,15rem);       /* μικρό για κινητά */
-    margin: 0 0 0 0.5rem; /* μειώνουμε περιθώρια */
-      transform: translateX(1%);;  /* πάει λίγο δεξιά */
-
+  .polaris-img {
+    width: 100%      /* μικρό για κινητά */
   }
   .genious-img {
     width: 50%;      /* μεγαλώνει */
     max-width: none !important;
-          transform: translateX(0%);;  /* πάει λίγο δεξιά */
 
 
   }
 }
+
 @media (max-width: 350px) {
   .polaris-img {
-    width: 108%;       /* μικρό για κινητά */
+    width: 110%;       /* μικρό για κινητά */
     margin: 0 0 0 0rem; /* μειώνουμε περιθώρια */
     transform: translateX(3%);;  /* πάει λίγο δεξιά */
 
