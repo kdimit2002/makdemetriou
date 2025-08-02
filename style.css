@@ -280,99 +280,140 @@
 /* Fluid sizing για το logo */
 .rational-logo-img {
   display: inline-block;
-  width: clamp(12rem,20vw,25rem);
+  width: clamp(12rem,22vw,25rem);
 /* width: clamp(20%, 8vw, 40%); */
   /* ποτέ μικρότερο από 120px, ιδανικά 12% του viewport πλάτους, ούτε πάνω από 240px */
   height: auto;
 }
-
-
-
+/* ----------- Section Container ----------- */
 .rational-icombi-layout {
-  display: grid;
-  grid-template-columns: 55% 45%;  /* 60% πλάτος στο κείμενο, 40% στην εικόνα */
-  column-gap: 0.2vw;               /* λίγο κενό ανάμεσα στις δύο στήλες */
-  align-items: start;             /* στοίχιση στην κορυφή */
-  overflow: hidden;               /* κρύβει ό,τι ξεχειλίζει */
-  padding: 2rem 1rem;
-  margin: 1rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(3rem,10vw,10.5rem);
+  padding: 4rem 2rem;
+  flex-wrap: wrap;  /* για responsive */
+  border-radius: 24px;
+  margin: 3rem auto;
+  max-width: 1200px;
 }
-/* ─────────────── Default (laptop/desktop) ─────────────── */
-.text-area {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  padding: 0 1.5rem;  /* λίγο padding αριστερά-δεξιά */
-  text-align: center; /* σε mobile η κεντραρισμένη ανάγνωση είναι πιο ξεκούραστη */
-  padding-top: calc(5rem + 2vw);
-  padding-left: 3vw;
-  text-align: center;
-  justify-self: center;
-  align-self: center;
-  max-width: 700px;   /* ιδανικό εύρος για ανάγνωση */
-  margin: 0 auto;     /* το κεντράρει */
+.rational-icombi-layout1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:clamp(0.5rem,10vw,4rem);
+  padding: 4rem 2rem;
+  flex-wrap: wrap;  /* για responsive */
+  border-radius: 24px;
+  margin: 3rem auto;
+  max-width: 1200px;
 }
 
-
-.text-area h2 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  margin-bottom: 1rem;
+/* ----------- Feature Cards ----------- */
+.features-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 
-.text-area p {
-  font-size: clamp(0.9rem, 1.25vw, 1.25rem);
-  line-height: 1.65;
-  margin-bottom: 1rem;
-  color: #333;
+/* Στυλ card */
+.feature-card {
+border: none;
+outline: none;
+background: linear-gradient(
+  0deg,
+  #38619b 0%,
+  #38619b 7%,
+  #4b70a4 15%,
+  #617ea6 20%,
+  #7a9ed0 30%,  /* σκούρο πιάνει 70% */
+  #93aed0 40%,
+  #a1badd 50%,
+  #e2eefe 100%  /* ανοιχτό τα τελευταία 30% */
+);  color: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  padding: 1rem 1.5rem;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 4px solid #ff3b3b; /* κόκκινη γραμμή κάτω */
 }
 
-/* ----------- ΕΙΚΟΝΑ ----------- */
-.rational-icombi-ivario-section {
-  position: relative;
-  padding: 2rem 0;
-  overflow: hidden;
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
-.rational-icombi-ivario-img {
-   max-width: 90%;
+.feature-card img {
+  width: clamp(100px, 10vw, 140px);
   height: auto;
-  margin: 1.5rem auto 0 auto;
-  display: block;  padding-top: clamp(1rem, 4vw, 3rem); /* responsive padding */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
-/* ----------- RESPONSIVE ----------- */
+.card0 img{
+  width: clamp(130px, 12vw, 170px);
+}
+
+
+.card img{
+  width: clamp(150px, 14vw, 200px);
+}
+.card{
+width: clamp(225px,20vw,325px);
+}
+.feature-card:nth-child(1)  { width: clamp(225px,20vw,325px); height: clamp(40px,4vw,80px);}
+.feature-card:nth-child(2)  { width: clamp(225px,20vw,325px); height: clamp(40px,4vw,80px)}
+.feature-card:nth-child(3)  { width: clamp(225px,20vw,325px); height: clamp(40px,4vw,80px)}
+
+/* Διαφορετικές διαστάσεις μόνο για τις κάτω */
+/* ----------- Main Image ----------- */
+.image-area img {
+  width: clamp(200px, 30vw, 400px);
+  height: auto;
+  display: block;
+}
+.image-area1 img {
+  margin-left: -140px; /* σταθερή μετατόπιση αριστερά */
+  width: clamp(325px, 40vw, 600px); /* responsive πλάτος */
+  height: auto;
+  display: block;
+}
+/* ----------- Animation Keyframes ----------- */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----------- Responsive ----------- */
 @media (max-width: 768px) {
   .rational-icombi-layout {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     text-align: center;
+    gap: 2rem;
   }
 
-  .text-area {
-    padding-top: 4vw;
-    padding-left: 4vw;
-    padding-right: 4vw;
+  .features-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
   }
 
-  .rational-icombi-ivario-img {
-    width: 100%;
-    max-width: 100%;
+  .feature-card {
+    width: 120px;
+  }
+
+  .image-area img {
+    max-width: 80%;
   }
 }
 
-@media (max-width: 400px) {
-  .text-area h2 {
-    font-size: 1.25rem;
-  }
-
-  .text-area p {
-    font-size: 0.9rem;
-  }
-
-  .rational-icombi-ivario-img {
-    max-height: 280px;
-  }
-}
 
   /* POLARIS GENIOUS LOGICAL AREA */
 
@@ -393,15 +434,13 @@
 }
 
 
-
-
 .polaris-section {
   display: flex;
-  align-items: flex-start;        /* ευθυγράμμιση πάνω-πάνω */
-  justify-content: space-between; /* Polaris αριστερά, genious-wrapper δεξιά */
-  overflow: hidden;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1400px;         /* σταθερό container */
+  margin: 0 auto;
 }
-
 /* Container για τις δύο δεξιές εικόνες */
 .genious-wrapper {
   display: flex;
@@ -428,7 +467,6 @@
   display: block;
   margin-left: auto; /* την σπρώχνει δεξιά */
 }
-
 
 
 /* Responsive αλλαγή στα 768px */
