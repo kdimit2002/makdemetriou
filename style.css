@@ -618,6 +618,7 @@ background: linear-gradient(
 /* Mobile */
 @media (max-width: 768px) {
   .ataslr-section {
+    padding-top: 0.1rem;
     flex-direction: column; /* κάθετη στο κινητό */
     align-items: center;
     gap: 1.5rem;
@@ -693,78 +694,55 @@ background: linear-gradient(
 
 
 
+  /* LOGOS UNDER */
 
-
-
-/* LOGOS UNDER */
-.logo-slider-section {
-  padding: 2rem 0;
-  overflow: hidden;
-}
 
 .logo-slider {
+  overflow: hidden;
   position: relative;
   width: 100%;
-  overflow: hidden;
 }
 
 .slide-track {
+  gap: 100px; /* μικρό κενό ανάμεσα */
   display: flex;
-  width: calc(250px * 8);     /* 8 = αριθμός .slide μέσα */
-  animation: scroll 30s linear infinite;
+  animation: scroll 5s linear infinite;
 }
 
 .slide {
-  width: 250px;                /* πλάτος κάθε logo */
-  flex-shrink: 0;
-  margin-right: 2rem;          /* κενό ανάμεσα στα logos */
+  flex: 0 0 auto;
+  padding: 10px;
 }
 
 .slide img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* 1. Ισοσταθμισμένο flex container */
-.logo-slider .slide-track {
-  display: flex;
-  align-items: center;    /* όλα τα logos στο ίδιο ύψος */
-}
-
-.logo-slider .slide {
-  width: 15vw;      /* 18% του πλάτους της οθόνης */
-  height: 10vh;     /* 10% του ύψους της οθόνης */
-  padding: 0 0.05vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-slider .slide img {
-  max-height: 8vh;  /* να μην ξεπερνά το 80% του box */
+  height: 60px;
   width: auto;
-  height: auto;
+  max-width: 100%;
   object-fit: contain;
 }
 
-
-.slide-track {
-  display: flex;
-  align-items: center;
-  gap: 7rem;    /* 2rem κενό ανάμεσα σε κάθε slide */
-  animation: scroll 40s linear infinite;
+:root {
+  --scroll-width: 0px; /* θα το γεμίσουμε με JS */
 }
 
 
-/* keyframes: μετακινούμε όλο το track κατά μισό, 
-   επειδή το έχουμε διπλώσει (8 slides = 2 * 4 logos) */
+/* Animation */
 @keyframes scroll {
-  from {
-    transform: translateX(0);
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--scroll-width))); }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide img {
+    height: 40px;
   }
-  to {
-    transform: translateX(-50%);
+}
+
+@media (max-width: 480px) {
+  .slide img {
+    height: 30px;
   }
 }
 
