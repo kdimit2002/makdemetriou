@@ -561,15 +561,15 @@ background: linear-gradient(
   align-items: flex-start;
   max-width: 1400px;
   margin: 0 auto;
-  gap: 5rem; /* desktop gap */
+  gap: 2rem; /* desktop gap */
   overflow: hidden;
   padding: 2rem; /* λίγο padding για αναπνοή */
 }
 
 /* Κείμενο */
 .ataslr-text {
-  padding-left: 5vw;
-  padding-top: 5vh;
+  padding-left: 2vw;
+  padding-top: 10vh;
 }
 
 .ataslr-text h2 {
@@ -588,7 +588,7 @@ background: linear-gradient(
 /* Εικόνα */
 .ataslr-image {
   flex-shrink: 0;
-  width: clamp(40%, 50vw, 60%);
+  width: clamp(37%, 50vw, 57%);
 }
 
 .ataslr-img {
@@ -629,11 +629,11 @@ background: linear-gradient(
   }
 
   .ataslr-text h2 {
-    font-size: 4.5vw;
+    font-size: 4vw;
   }
 
   .ataslr-text p {
-    font-size: 3.5vw;
+    font-size: 3vw;
   }
 
   .ataslr-image {
