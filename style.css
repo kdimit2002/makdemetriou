@@ -69,11 +69,9 @@
 
 /* Σε μεσαίες οθόνες */
 @media (min-width: 992px){
-
 .menu-links {
   padding-left: 4.0rem;
 }
-
 }
 
 
@@ -108,6 +106,38 @@
 }
 
 
+/* ======= HEADER για πολύ μεγάλες οθόνες (≥ 2200px) ======= */
+@media (min-width: 2000px) {
+
+  :root {
+    --nav-gap: 7rem;           /* αυξημένο διάκενο ανάμεσα στα links */
+    --nav-font-size: 2.4rem;   /* μεγαλύτερο μέγεθος γραμματοσειράς */
+    --nav-margin-base: 8rem;   /* λίγο μεγαλύτερο κενό στην αρχή */
+    --nav-margin-lg: 2rem;     /* λίγο μεγαλύτερο margin για desktop */
+  }
+
+  /* Λογότυπο */
+  .logo-container img {
+    height: 50vw;             /* μεγαλύτερο ύψος λογοτύπου */
+    max-height: none;          /* χωρίς περιορισμό max-height */
+  }
+
+  .navbar-brand img {
+    height: 7vw;             /* σταθερό μέγεθος για μεγάλη ανάλυση */
+    max-height: none;
+  }
+
+  /* Links στο menu */
+  .navbar-nav .nav-link {
+    font-size: 1.5vw;           /* ευανάγνωστο σε απόσταση (τηλεόραση) */
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* Menu container */
+  .menu-links {
+    padding-left: 6rem;        /* περισσότερο padding */
+  }
+}
 
   /* FOOTER */
 .footer{
@@ -203,6 +233,40 @@
 }
 
 
+/* ======= FOOTER & HERO για πολύ μεγάλες οθόνες (≥ 2200px) ======= */
+@media (min-width: 2000px) {
+
+  /* FOOTER */
+  .footer {
+    padding-left: 1vw; /* λίγο παραπάνω κενό για ισορροπία */
+  }
+  .footer .social-links {
+    gap: 3rem; /* μεγαλύτερη απόσταση ανάμεσα στα icons */
+  }
+  .footer .social-icon {
+    font-size: 1.5vw; /* εμφανή σε 4K/8K */
+    padding-bottom: 1.5rem;
+  }
+  .footer .footer-copy {
+    font-size: 1vw;
+  }
+
+  /* HERO SECTION */
+  .main {
+    height: 90vh; /* πιο ψηλό hero */
+    background-size: contain; /* για να φαίνεται όλη η εικόνα */
+  }
+  .hero-content {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+  .hero-content h1 {
+    font-size: 4.2rem;
+  }
+  .hero-content p.lead {
+    font-size: 2rem;
+  }
+}
 
 
 
@@ -250,6 +314,30 @@
   }
 }  
 
+/* ======= INTRO SECTION για πολύ μεγάλες οθόνες (≥ 2200px) ======= */
+@media (min-width: 2000px) {
+    .main {
+    height: 90vh;
+    background-size: cover; /* Γεμίζει όλο το πλάτος/ύψος */
+    background-position: center;
+  }
+  .intro-section h2 {
+    font-size: 3vw;    /* μεγάλο, ευδιάκριτο */
+  }
+
+  .intro-section p {
+    font-size: 2vw;      /* πιο άνετη ανάγνωση σε τηλεόραση */
+  }
+
+.hero-content h1 {
+    font-size: 3.5vw;    /* μεγάλο, ευδιάκριτο */
+}
+
+.hero-content p.lead {
+    font-size: 2vw;    /* μεγάλο, ευδιάκριτο */
+}
+
+}
 
 /* ─────────────── Wide (≥1440px) ─────────────── */
 /* @media (min-width: 2000px) {
@@ -267,6 +355,8 @@
 } */
 
 
+
+  /* RATIONAL */
 
 
 /* Logo rational στο κέντρο, με μικρή απόσταση πάνω/κάτω */
@@ -440,6 +530,70 @@ background: linear-gradient(
 }
 
 
+
+/* ======= RATIONAL για πολύ μεγάλες οθόνες (≥ 2200px) ======= */
+@media (min-width: 2200px) {
+
+  /* Λογότυπο Rational */
+  .rational-logo-img {
+    width: 20vw; /* μεγαλύτερο logo */
+  }
+
+  /* Container διάταξης */
+  .rational-icombi-layout,
+  .rational-icombi-layout1 {
+    gap: 4vw;          /* μεγαλύτερο κενό μεταξύ στοιχείων */
+width: 80vw;
+max-width: none;
+    transform: translate(-2);    /* κεντραρισμένο */
+    padding: 6rem 4rem;
+  }
+
+  /* Κάρτες χαρακτηριστικών */
+  .feature-card {
+    width: 30vw;
+    height: 10vw;
+  }
+  .feature-card img {
+    width: 30vw;
+    height: 10vw;
+  }
+
+  /* Κεντρικές εικόνες */
+  .image-area img {
+    width: 40vw;
+  }
+  /* .image-area1 img {
+    width: 30;
+    margin-left: 0;
+  } */
+   
+.feature-card img {
+  width: 10vw;
+  height: auto;
+}
+  .feature-card:nth-child(1)  { width: 20vw; height: 5vw;}/*200px*/
+.feature-card:nth-child(2)  { width: 20vw; height: 5vw}
+.feature-card:nth-child(3)  { width: 20vw; height: 5vw}
+
+.card0 img{
+  width: 12vw;
+}
+
+
+.iproduction-card img{
+  width: 15vw
+}
+.iproduction-card{
+  width: 20vw;
+  height: 5vw;
+}
+}
+
+
+
+
+
   /* POLARIS GENIOUS LOGICAL AREA */
 
 /* κεντράρει το logo και δίνει κενό από κάτω */
@@ -535,8 +689,41 @@ background: linear-gradient(
   }
 }
 
+/* ======= POLARIS μεγάλα μεγέθη με vw (≥ 2200px) ======= */
+@media (min-width: 2000px) {
 
+  /* Λογότυπο Polaris */
+  .polaris-logo-img {
+    width: 25vw; /* μεγαλύτερο, αλλά κλιμακωτό */
+  }
 
+  /* Κύριο container */
+  .polaris-section {
+    max-width: none; /* πιο φαρδύ */
+    gap: 5vw;
+  }
+
+  /* Κύρια εικόνα Polaris */
+  .polaris-img {
+    width: 50vw; /* μεγαλύτερη αναλογία εικόνας */
+    padding-top: 0.5vw;
+    transform: none;
+  }
+
+  /* Εικόνα Genious */
+  .genious-img {
+    width: 25vw;
+    margin-left: 0;
+    transform: none;
+  }
+
+  /* Wrapper για τις δύο δεξιές εικόνες */
+  .genious-wrapper {
+    gap: 3vw;
+  }
+}
+
+ /* ATA SLR */
 
 .ataslr-logo-section {
   text-align: center;
@@ -642,6 +829,89 @@ background: linear-gradient(
   }
 }
 
+/* ======= ATA SLR μεγάλα μεγέθη με vw (≥ 2200px) ======= */
+@media (min-width: 2000px) {
+
+  /* Λογότυπο */
+  .ataslr-logo-img {
+    width: 15vw; /* μεγαλύτερο logo */
+  }
+
+  /* Κύριο container */
+  .ataslr-section {
+    max-width: none; /* πιο φαρδύ */
+    gap: 5vw;        /* μεγαλύτερο κενό ανάμεσα */
+    padding: 4vw;
+  }
+
+  /* Κείμενο */
+  .ataslr-text {
+    padding-left: 3vw;
+    padding-top: 8vh;
+  }
+
+  .ataslr-text h2 {
+    font-size: 2.6vw; /* πιο μεγάλο για 4K */
+  }
+
+  .ataslr-text p {
+    font-size: 2vw; /* αναλογικό με την οθόνη */
+  }
+
+  /* Εικόνα */
+  .ataslr-image {
+    width: 45vw; /* μεγαλύτερη εικόνα */
+  }
+}
+  
+
+
+
+.see-more-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.arrow-above {
+  margin-bottom: 0.8rem;
+  animation: bounce 1.2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.see-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #003366, #0155a8);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 2vw;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.see-more-btn .arrow {
+  font-size: 1vw;
+  transition: transform 0.3s ease;
+}
+
+.see-more-btn:hover {
+  background: linear-gradient(135deg, #0155a8, #003366);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.see-more-btn:hover .arrow {
+  transform: translateX(5px);
+}
 
 
 
@@ -693,44 +963,6 @@ background: linear-gradient(
 }
 
 
-
-  /* LOGOS UNDER */
-
-
-.logo-slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.slide-track {
-  gap: 100px; /* μικρό κενό ανάμεσα */
-  display: flex;
-  animation: scroll 5s linear infinite;
-}
-
-.slide {
-  flex: 0 0 auto;
-  padding: 10px;
-}
-
-.slide img {
-  height: 60px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-:root {
-  --scroll-width: 0px; /* θα το γεμίσουμε με JS */
-}
-
-
-/* Animation */
-@keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(calc(-1 * var(--scroll-width))); }
-}
 
 
 /* Responsive adjustments */
@@ -794,101 +1026,138 @@ background: linear-gradient(
   }
 }
 
-
-
-/* ABOUT US SECTION 1ST PARAGRAPH */
+/* ABOUT US SECTION 1ST PARAGRAPH - responsive με vw */
 .about-section {
   background: linear-gradient(135deg, #f7fafd 80%, #e6eefe 100%);
-  border-radius: 25px;
-  box-shadow: 0 4px 20px #00336612;
-  padding: 56px 48px 48px 48px;
+  border-radius: 1.3vw;
+  box-shadow: 0 0.21vw 1.04vw #00336612;
+  padding: 2.9vw 2.5vw 2.5vw 2.5vw;
   max-width: 60vw;
-  margin: 40px auto 0 auto;
+  margin: 2vw auto 0 auto;
   position: relative;
   overflow: hidden;
 }
+
 .about-title {
-  font-size: 3.1rem;
+  font-size: 1.9vw; /* +0.3 */
   color: #003366;
   font-weight: 800;
-  margin-bottom: 0.4em;
-  letter-spacing: 1px;
+  margin-bottom: 0.4vw;
+  letter-spacing: 0.06vw;
   display: flex;
   align-items: center;
 }
+
 .about-title::before {
   content: '';
   display: inline-block;
-  width: 34px;
-  height: 5px;
+  width: 1.77vw;
+  height: 0.26vw;
   background: #e02626;
-  border-radius: 6px;
-  margin-right: 16px;
+  border-radius: 0.31vw;
+  margin-right: 0.83vw;
 }
+
 .about-subtitle {
-  font-size: 1.6rem;
+  font-size: 1.1vw; /* +0.27 */
   color: #006199;
   font-style: italic;
-  margin-bottom: 24px;
+  margin-bottom: 1.25vw;
   font-weight: 500;
 }
+
 .about-maintext {
-  font-size: 1.56rem;
+  font-size: 1.05vw; /* +0.24 */
   color: #24292f;
-  margin-bottom: 1.2em;
+  margin-bottom: 0.62vw;
   line-height: 1.75;
 }
+
 .about-list {
-  font-size: 1.48rem;
-    color: #333;
-    margin-bottom: 2em;
-    padding-left: 0;
-    list-style: none;
-  }
-  .about-list li {
-    margin-bottom: 0.75em;
-    display: flex;
-    align-items: flex-start;
-  }
-.about-list li::before {
-  content: '✓';
-  margin-right: 12px;
-  font-size: 1.55em;
-  color: #003366;
-  font-weight: bold;
-  transform: translateY(2px);
+  font-size: 1vw; /* +0.23 */
+  color: #333;
+  margin-bottom: 1.04vw;
+  padding-left: 0;
+  list-style: none;
 }
 
-  .about-goal {
-    font-size: 1.55rem;
-    color: #0c2c55;
-    margin-bottom: 2.2em;
-    font-weight: 600;
-    background: #e8f3ff;
-    padding: 18px 28px;
-    border-left: 7px solid #e02626;
-    border-radius: 0 18px 18px 0;
-  }
-  .about-footer {
-    font-size: 1.45rem;
-    color: #2c3c4c;
-    font-weight: 700;
-    margin-top: 2.8em;
-    padding-left: 8px;
-    border-left: 5px solid #003366;
-    background: #f1f7fc;
-    border-radius: 12px;
-    display: inline-block;
-  }
-  .brand-highlight {
-    color: #e02626;
-    font-weight: bold;
-    font-size: 1.1em;
-    letter-spacing: 0.5px;
-  }
+.about-list li {
+  margin-bottom: 0.39vw;
+  display: flex;
+  align-items: flex-start;
+}
 
+.about-list li::before {
+  content: '✓';
+  margin-right: 0.62vw;
+  font-size: 1.05vw; /* +0.25 */
+  color: #003366;
+  font-weight: bold;
+  transform: translateY(0.1vw);
+}
 
+.about-goal {
+  font-size: 1.05vw; /* +0.25 */
+  color: #0c2c55;
+  margin-bottom: 1.14vw;
+  font-weight: 600;
+  background: #e8f3ff;
+  padding: 0.93vw 1.45vw;
+  border-left: 0.36vw solid #e02626;
+  border-radius: 0 0.93vw 0.93vw 0;
+}
 
+.about-footer {
+  font-size: 0.95vw; /* +0.20 */
+  color: #2c3c4c;
+  font-weight: 700;
+  margin-top: 1.45vw;
+  padding-left: 0.41vw;
+  border-left: 0.26vw solid #003366;
+  background: #f1f7fc;
+  border-radius: 0.62vw;
+  display: inline-block;
+}
+
+.brand-highlight {
+  color: #e02626;
+  font-weight: bold;
+  font-size: 1.15em; /* λίγο μεγαλύτερο */
+  letter-spacing: 0.026vw;
+}
+
+/* ======== MEDIA QUERIES ======== */
+
+/* Μεσαίες οθόνες (έως 1024px) */
+@media (max-width: 1024px) {
+  .about-section {
+    max-width: 80vw;
+    padding: 4vw;
+  }
+  .about-title { font-size: 2.6vw; }
+  .about-subtitle { font-size: 1.9vw; }
+  .about-maintext,
+  .about-list,
+  .about-goal,
+  .about-footer { font-size: 1.8vw; }
+}
+
+/* Μικρές οθόνες (έως 600px) */
+@media (max-width: 600px) {
+  .about-list li::before {
+      font-size: 3vw; /* +0.25 */
+  }
+  .about-section {
+    max-width: 90vw;
+    padding: 10vw;
+  }
+  .about-title { font-size: 4.2vw; }
+  .about-subtitle { font-size: 3.5vw; }
+  .about-maintext,
+  .about-list,
+  .about-goal,
+  .about-footer { font-size: 3.2vw; }
+}
 
 
  /* ABOUT US BACKGROUND PICTURE */
@@ -957,7 +1226,7 @@ background: linear-gradient(
   opacity: 0.85;
   text-shadow: 0 0 0.9vw #222c;
 }
-
+/* 
 @media (max-width: 900px) {
   .hero-title { font-size: 5vw; }
   .hero-title span, .hero-location { font-size: 6vw; }
@@ -972,7 +1241,7 @@ background: linear-gradient(
   .hero-title-bg { padding: 6vw 2vw; border-radius: 5vw; }
   .hero-tagline { font-size: 4vw; }
   .hero-banner { height: 55vw; min-height: 100px; }
-}
+} */
 
   
 
@@ -1077,6 +1346,47 @@ background: linear-gradient(
 
 
 
+/* Mobile κάτω από 600px */
+@media (max-width: 600px) {
+  .services-modern-section {
+    max-width: 90vw;
+    margin: 8vw auto 0 auto;
+  }
+
+  .services-modern-title {
+    font-size: 5vw;
+    margin-bottom: 5vw;
+  }
+
+  .services-list-modern {
+    gap: 5vw;
+  }
+
+  .service-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5vw 4vw;
+    border-radius: 3vw;
+  }
+
+  .service-title {
+    font-size: 4vw;
+    margin-top: 3vw;
+  }
+
+  .service-desc {
+    font-size: 3.4vw;
+    margin-top: 2vw;
+  }
+
+  .service-img {
+    width: 18vw;
+    height: 18vw;
+    margin-left: 0;
+    margin-bottom: 3vw;
+  }
+}
 
 
 /* PRODUCTS PAGE  */
@@ -1221,6 +1531,9 @@ body {
   .product-name { font-size: 3.3vw; }
   .product-btn { font-size: 2.5vw; border-radius: 2vw; padding: 2vw 7vw; }
 }
+
+
+
 
 
 
