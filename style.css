@@ -1542,4 +1542,12 @@ body {
 
 
 
+@media (max-width: 440px) {
+  
+.product-card {
+  width: 95vw;
+}
+}
+
+
 
