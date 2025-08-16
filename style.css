@@ -1546,6 +1546,7 @@ body {
   
 .product-card {
   width: 95vw;
+  transform: translate(-2.5vw);
 }
 }
 
