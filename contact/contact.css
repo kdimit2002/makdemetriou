@@ -1,0 +1,225 @@
+
+/* ─── Font Awesome ─── */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+
+
+/* HEADER */
+/* ================= ΟΡΙΣΜΟΣ ΜΕΤΑΒΛΗΤΩΝ ΓΙΑ ΕΥΚΟΛΟ TWEAKING ================= */
+:root {
+  /* διάκενο μεταξύ links */
+  --nav-gap:          5rem;
+  /* font-size των links */
+  --nav-font-size:    1.90rem;
+  /* αριστερό margin του menu (mobile/tablet) */
+  --nav-margin-base:  6rem;   /* αντί για ms-4 */
+  /* αριστερό margin του menu (desktop ≥992px) */
+  --nav-margin-lg:    0.5rem;   /* αντί για ms-lg-2 */
+}
+
+/* ================= ΒΑΣΙΚΕΣ ΡΥΘΜΙΣΕΙΣ ================= */
+.logo-container {
+  padding-left: min(1rem,8%);
+  margin-right: 1rem;
+}
+
+
+
+.logo-container img {
+  text-align: center;
+  height: 50px; /* αρχικό ύψος για desktop */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
+.navbar-brand img {
+  height: 5vw;
+  max-height: 100px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-brand img {
+    height: 17vw;
+    max-height: 83px;
+  }
+}
+
+
+/* Σε μικρές οθόνες, μικραίνουμε το ύψος */
+@media (max-width: 767.98px) {
+  .logo-container img {
+    max-height: 70px;
+    height: 60px;
+  }
+}
+
+/* Σε μεσαίες οθόνες */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .logo-container img {
+    max-height: 80px;
+    height: 80px;
+  }
+}
+/* Σε μεσαίες οθόνες */
+@media (min-width: 992px) and (max-width: 2200px) {
+  .logo-container img {
+    height: 94px;
+  }
+}
+
+/* Σε μεσαίες οθόνες */
+@media (min-width: 992px){
+.menu-links {
+  padding-left: 4.0rem;
+}
+}
+
+
+.menu-links {
+  display: flex;
+  gap: var(--nav-gap);
+}
+
+.navbar-nav {
+  display: flex;                /* για να λειτουργεί το gap */
+  flex-wrap: wrap;              /* σπάσιμο σε γραμμές αν χρειάζεται */
+  gap: var(--nav-gap);
+  margin-left: var(--nav-margin-base);
+  margin-right: 0;
+}
+
+.navbar-nav .nav-link {
+  font-size: clamp(0.5rem, 3.0vw, 1rem);
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+  background-color: black !important;
+  color: white !important;
+  border-radius: 5px; /* για λίγο ωραίο στρογγυλεμένο εφέ */
+  padding: 0.25rem 0.5rem; /* για να φαίνεται το background γύρω από το κείμενο */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* ======= HEADER για πολύ μεγάλες οθόνες (≥ 2200px) ======= */
+@media (min-width: 2000px) {
+
+  :root {
+    --nav-gap: 7rem;           /* αυξημένο διάκενο ανάμεσα στα links */
+    --nav-font-size: 2.4rem;   /* μεγαλύτερο μέγεθος γραμματοσειράς */
+    --nav-margin-base: 8rem;   /* λίγο μεγαλύτερο κενό στην αρχή */
+    --nav-margin-lg: 2rem;     /* λίγο μεγαλύτερο margin για desktop */
+  }
+
+  /* Λογότυπο */
+  .logo-container img {
+    height: 50vw;             /* μεγαλύτερο ύψος λογοτύπου */
+    max-height: none;          /* χωρίς περιορισμό max-height */
+  }
+
+  .navbar-brand img {
+    height: 7vw;             /* σταθερό μέγεθος για μεγάλη ανάλυση */
+    max-height: none;
+  }
+
+  /* Links στο menu */
+  .navbar-nav .nav-link {
+    font-size: 1.5vw;           /* ευανάγνωστο σε απόσταση (τηλεόραση) */
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* Menu container */
+  .menu-links {
+    padding-left: 6rem;        /* περισσότερο padding */
+  }
+}
+
+
+
+  /* background */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+.contact-section {
+  background: linear-gradient(130deg, #0E3D75, #E30613);
+  padding: 60px 0;
+  color: white;
+}
+
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.contact-card {
+  background-color: white;
+  color: #000;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-danger {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c0050f;
+  transform: translateY(-2px);
+}
+
+
+body {
+  background: #f7fafd;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+  /* FOOTER */
+.footer{
+  padding-left: 2%;
+}
+
+.footer .social-links {
+  padding-top: 1vh;
+  display: inline-flex;
+  gap: 1.5rem;
+}
+
+.footer .social-icon {
+  padding-bottom: 1.2vw;
+  font-size: clamp(1.4rem,1.8vw,2.0rem);
+  transition: color .3s, transform .3s;
+}
+
+.footer .social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.footer .social-icon.facebook:hover {
+  color: #3b5998;  /* Facebook blue */
+}
+
+.footer .social-icon.instagram:hover {
+  color: #E1306C;  /* Instagram gradient pink */
+}
+
+.footer .footer-copy {
+  font-size:clamp(0.8rem,1.0vw,1.4rem);
+  opacity: 0.9;
+}

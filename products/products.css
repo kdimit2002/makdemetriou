@@ -1,0 +1,340 @@
+/* ─── Font Awesome ─── */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+
+
+
+/* HEADER */
+/* ================= ΟΡΙΣΜΟΣ ΜΕΤΑΒΛΗΤΩΝ ΓΙΑ ΕΥΚΟΛΟ TWEAKING ================= */
+:root {
+  /* διάκενο μεταξύ links */
+  --nav-gap:          5rem;
+  /* font-size των links */
+  --nav-font-size:    1.90rem;
+  /* αριστερό margin του menu (mobile/tablet) */
+  --nav-margin-base:  6rem;   /* αντί για ms-4 */
+  /* αριστερό margin του menu (desktop ≥992px) */
+  --nav-margin-lg:    0.5rem;   /* αντί για ms-lg-2 */
+}
+
+/* ================= ΒΑΣΙΚΕΣ ΡΥΘΜΙΣΕΙΣ ================= */
+.logo-container {
+  padding-left: min(1rem,8%);
+  margin-right: 1rem;
+}
+
+
+
+.logo-container img {
+  text-align: center;
+  height: 50px; /* αρχικό ύψος για desktop */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+
+.navbar-brand img {
+  height: 5vw;
+  max-height: 100px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-brand img {
+    height: 17vw;
+    max-height: 83px;
+  }
+}
+
+
+/* Σε μικρές οθόνες, μικραίνουμε το ύψος */
+@media (max-width: 767.98px) {
+  .logo-container img {
+    max-height: 70px;
+    height: 60px;
+  }
+}
+
+/* Σε μεσαίες οθόνες */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .logo-container img {
+    max-height: 80px;
+    height: 80px;
+  }
+}
+/* Σε μεσαίες οθόνες */
+@media (min-width: 992px) and (max-width: 2200px) {
+  .logo-container img {
+    height: 94px;
+  }
+}
+
+/* Σε μεσαίες οθόνες */
+@media (min-width: 992px){
+.menu-links {
+  padding-left: 4.0rem;
+}
+}
+
+
+.menu-links {
+  display: flex;
+  gap: var(--nav-gap);
+}
+
+.navbar-nav {
+  display: flex;                /* για να λειτουργεί το gap */
+  flex-wrap: wrap;              /* σπάσιμο σε γραμμές αν χρειάζεται */
+  gap: var(--nav-gap);
+  margin-left: var(--nav-margin-base);
+  margin-right: 0;
+}
+
+.navbar-nav .nav-link {
+  font-size: clamp(0.5rem, 3.0vw, 1rem);
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+  background-color: black !important;
+  color: white !important;
+  border-radius: 5px; /* για λίγο ωραίο στρογγυλεμένο εφέ */
+  padding: 0.25rem 0.5rem; /* για να φαίνεται το background γύρω από το κείμενο */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* ======= HEADER για πολύ μεγάλες οθόνες (≥ 2200px) ======= */
+@media (min-width: 2000px) {
+
+  :root {
+    --nav-gap: 7rem;           /* αυξημένο διάκενο ανάμεσα στα links */
+    --nav-font-size: 2.4rem;   /* μεγαλύτερο μέγεθος γραμματοσειράς */
+    --nav-margin-base: 8rem;   /* λίγο μεγαλύτερο κενό στην αρχή */
+    --nav-margin-lg: 2rem;     /* λίγο μεγαλύτερο margin για desktop */
+  }
+
+  /* Λογότυπο */
+  .logo-container img {
+    height: 50vw;             /* μεγαλύτερο ύψος λογοτύπου */
+    max-height: none;          /* χωρίς περιορισμό max-height */
+  }
+
+  .navbar-brand img {
+    height: 7vw;             /* σταθερό μέγεθος για μεγάλη ανάλυση */
+    max-height: none;
+  }
+
+  /* Links στο menu */
+  .navbar-nav .nav-link {
+    font-size: 1.5vw;           /* ευανάγνωστο σε απόσταση (τηλεόραση) */
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* Menu container */
+  .menu-links {
+    padding-left: 6rem;        /* περισσότερο padding */
+  }
+}
+
+
+
+
+
+
+
+  /* FOOTER */
+.footer{
+  padding-left: 2%;
+}
+
+.footer .social-links {
+  padding-top: 1vh;
+  display: inline-flex;
+  gap: 1.5rem;
+}
+
+.footer .social-icon {
+  padding-bottom: 1.2vw;
+  font-size: clamp(1.4rem,1.8vw,2.0rem);
+  transition: color .3s, transform .3s;
+}
+
+.footer .social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.footer .social-icon.facebook:hover {
+  color: #3b5998;  /* Facebook blue */
+}
+
+.footer .social-icon.instagram:hover {
+  color: #E1306C;  /* Instagram gradient pink */
+}
+
+.footer .footer-copy {
+  font-size:clamp(0.8rem,1.0vw,1.4rem);
+  opacity: 0.9;
+}
+
+
+/* PRODUCTS PAGE  */
+body {
+  background: #f7fafd;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.products-section {
+  max-width: 94vw;
+  margin: 4vw auto 0 auto;
+  padding: 0 2vw 4vw 2vw;
+}
+
+.products-title {
+  text-align: center;
+  color: #003366;
+  font-size: 2.7vw;
+  font-weight: 900;
+  margin-bottom: 3vw;
+  letter-spacing: 0.08vw;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 2vw;
+}
+
+.product-card {
+  background: linear-gradient(117deg, rgba(0,51,102,0.97) 64%, rgba(61,34,116,0.87) 100%);
+  border-radius: 1.5vw;
+  box-shadow: 0 0.5vw 1.6vw #00336618, 0 0.12vw 0.6vw #fff1 inset;
+  padding: 1.2vw 1vw 2.4vw 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.22s, transform 0.22s, background 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  box-shadow: 0 2vw 3vw #00336633, 0 0.7vw 2vw #e0262613;
+  transform: translateY(-0.8vw) scale(1.038);
+  background: linear-gradient(117deg, rgba(0,51,102,1) 60%, rgba(61,34,116,0.97) 100%);
+  z-index: 2;
+}
+
+/* Μικρή “γυαλάδα” για premium look */
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: -7%;
+  left: -8%;
+  width: 66%;
+  height: 70%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.16) 32%, rgba(255,255,255,0.01) 100%);
+  z-index: 1;
+  border-radius: 1vw 4vw 8vw 2vw;
+  pointer-events: none;
+}
+
+.product-img {
+  width: 9vw;
+  height: 9vw;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0.3vw 1.2vw #00336618;
+  background: #fff;
+  margin-bottom: 1.4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+  transition: box-shadow 0.16s, transform 0.17s;
+}
+.product-card:hover .product-img {
+  box-shadow: 0 1.3vw 3vw #00336635, 0 0.5vw 2vw #e0262622;
+  transform: scale(1.07) rotate(-3deg);
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.15s;
+}
+.product-card:hover .product-img img {
+  transform: scale(1.09);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.product-name {
+  color: #fff;
+  font-size: 1.17vw;
+  font-weight: 700;
+  text-align: center;
+  margin: 0.7vw 0 1vw 0;
+  letter-spacing: 0.04vw;
+}
+
+.product-btn {
+  background: #e02626;
+  color: #fff;
+  border: none;
+  border-radius: 0.9vw;
+  padding: 0.7vw 2.4vw;
+  font-size: 1.03vw;
+  font-weight: 600;
+  letter-spacing: 0.08vw;
+  cursor: pointer;
+  margin-top: 0.2vw;
+  box-shadow: 0 0.13vw 0.7vw #e0262626;
+  transition: background 0.19s, color 0.19s, transform 0.18s;
+}
+.product-btn:hover {
+  background: #fff;
+  color: #e02626;
+  transform: scale(1.09);
+}
+
+.product-img-link, .product-btn {
+  text-decoration: none;
+  display: block;
+}
+
+
+@media (max-width: 900px) {
+  .products-title { font-size: 5.8vw; }
+  .product-img { width: 22vw; height: 22vw; min-width: 64px; min-height: 64px; }
+  .product-name { font-size: 3.3vw; }
+  .product-btn { font-size: 2.5vw; border-radius: 2vw; padding: 2vw 7vw; }
+}
+
+
+
+
+
+
+@media (max-width: 440px) {
+  
+.product-card {
+  width: 95vw;
+  transform: translate(-2.5vw);
+}
+}
+
+
+
