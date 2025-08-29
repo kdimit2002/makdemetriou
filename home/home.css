@@ -215,11 +215,11 @@ body {
 }
 
 .hero-content h1 {
-  font-size: clamp(1.35rem,3.50vw,2.25rem);
+  font-size: clamp(1.4rem,3.50vw,2.5rem);
 }
 
 .hero-content p.lead {
-  font-size: clamp(0.90rem,2.75vw,1.50rem);
+  font-size: clamp(0.70rem,1.5vw,1.25rem);
 }
 
 /* Responsive ύψος hero */
