@@ -190,7 +190,7 @@ body {
   position: relative;
   width: 100%;
   height: 80vh;                        /* Υψος ή πχ min-height: 500px */
-  background: url('assets/MAK Demetriou R-05 Logo.png')   /* δικό σου αρχείο εικόνας */
+  background: url('assets/hero2.png')   /* δικό σου αρχείο εικόνας */
               no-repeat center center;
   background-size: cover;
   overflow: hidden;
