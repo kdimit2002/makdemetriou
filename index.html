@@ -12,51 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- 2. δικό σου CSS μετά -->
   <link rel="stylesheet" href="home/home.css" />
-  <style>
-:root {
-  --scroll-width: 0px; /* θα το γεμίσουμε με JS */
-}
-
-.logo-slider {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-}
-
-.slide-track {
-  display: flex;
-  gap: 100px;
-  animation: scroll var(--scroll-speed, 45s) linear infinite;
-}
-
-.slide {
-  flex: 0 0 auto;
-}
-
-.slide img {
-  height: 60px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-/* Animation */
-@keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(calc(-1 * var(--scroll-width))); }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .slide-track {
-    gap: 50px;
-  }
-  .slide img { height: 40px; }
-}
-@media (max-width: 480px) {
-  .slide img { height: 30px; }
-}
-</style>
+ 
 </head>
 
 <body>
@@ -242,93 +198,267 @@
 
 
 <!-- Youtube videos -->
-
-
 <section class="video-carousel-section py-5">
-  <div
-    id="videoCarousel"
-    class="carousel slide mx-auto"
-    data-bs-ride="false"
-    data-bs-interval="false"
-  >
+  <div id="videoCarousel" class="carousel slide mx-auto" data-bs-ride="false" data-bs-interval="false">
     <div class="carousel-inner">
-      <!-- Item 1 (πλέον το πρώτο από τα δύο) -->
+      <!-- Item 1 -->
       <div class="carousel-item active">
         <div class="ratio ratio-16x9">
-          <iframe
-            src="https://www.youtube.com/embed/aYTjxnebjn4"
-            title="Video 2"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+        <div class="yt-lite" data-video-id="aYTjxnebjn4">
+          <img class="yt-thumb" src="https://i.ytimg.com/vi/aYTjxnebjn4/hqdefault.jpg" alt="Video thumbnail" loading="lazy">
+          <button class="yt-play" aria-label="Play"></button>
+        </div>
+
         </div>
       </div>
       <!-- Item 2 -->
       <div class="carousel-item">
         <div class="ratio ratio-16x9">
-          <iframe
-            src="https://www.youtube.com/embed/WvNwjxmBohQ"
-            title="Video 3"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div class="yt-lite" data-video-id="WvNwjxmBohQ" aria-label="Play video">
+            <img class="yt-thumb" alt="Video thumbnail" loading="lazy"
+                 src="https://i.ytimg.com/vi/WvNwjxmBohQ/hqdefault.jpg">
+            <button class="yt-play" aria-label="Play"></button>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Controls -->
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#videoCarousel"
-      data-bs-slide="prev"
-    >
+    <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#videoCarousel"
-      data-bs-slide="next"
-    >
+    <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
 </section>
 
+<style>
+/* Βεβαιώνουμε ότι το placeholder «γεμίζει» το .ratio */
+.ratio > .yt-lite { position: absolute; inset: 0; }
 
+/* Κοντέινερ placeholder */
+.yt-lite { display: block; width: 100%; height: 100%; cursor: pointer; background: #000; }
+
+/* Thumbnail εικόνα */
+.yt-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Κουμπί Play */
+.yt-play {
+  position: absolute; inset: 0; margin: auto; width: 68px; height: 48px; border: 0; border-radius: 14px;
+  background: rgba(255,255,255,.94); box-shadow: 0 2px 10px rgba(0,0,0,.3);
+}
+.yt-play::before {
+  content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-30%, -50%);
+  border-left: 14px solid #000; border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+}
+.yt-lite:hover .yt-play { background: #fff; }
+.ratio > .yt-lite {
+  position: absolute;
+  inset: 0;
+}
+
+.yt-lite {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.yt-lite .yt-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* γεμίζει όλο το πλαίσιο */
+  display: block;
+}
+
+.yt-lite .yt-play {
+  position: absolute;
+  width: 68px;
+  height: 48px;
+  border: 0;
+  border-radius: 14px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 2px 10px rgba(0,0,0,.3);
+  cursor: pointer;
+}
+.yt-lite .yt-play::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-30%, -50%);
+  border-left: 14px solid #000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+</style>
+
+<script>
+(function(){
+  const ORDER = ["maxresdefault.jpg","hq720.jpg","sddefault.jpg","hqdefault.jpg","mqdefault.jpg"];
+
+  function pickBestThumb(videoId, imgEl){
+    let i = 0;
+    function tryNext(){
+      if(i >= ORDER.length) return; // δεν βρέθηκε κάτι καλύτερο
+      const url = `https://i.ytimg.com/vi/${videoId}/${ORDER[i++]}`;
+      const test = new Image();
+      test.decoding = "async";
+      test.onload = () => {
+        // Μερικά URLs επιστρέφουν "μαύρο" 120x90 ή 404. Φίλτρο ποιότητας:
+        if (test.naturalWidth >= 640) {         // αποδεκτή ποιότητα
+          imgEl.src = url;
+          imgEl.width = test.naturalWidth;      // προαιρετικά: intrinsic size
+          imgEl.height = test.naturalHeight;
+        } else {
+          tryNext(); // δοκίμασε μικρότερο fallback
+        }
+      };
+      test.onerror = tryNext;
+      test.src = url;
+    }
+    tryNext();
+  }
+
+  // Εφάρμοσε σε όλα τα placeholders
+  document.querySelectorAll('.yt-lite').forEach(ph=>{
+    const id = ph.dataset.videoId;
+    const img = ph.querySelector('.yt-thumb');
+    if(img) pickBestThumb(id, img);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const carousel = document.getElementById('videoCarousel');
+
+  // Click => φόρτωση iframe
+  document.querySelectorAll('.yt-lite').forEach(ph=>{
+    const id = ph.dataset.videoId;
+    ph.addEventListener('click', ()=> mountIframe(ph, id, true), { once: true });
+  });
+
+  function mountIframe(placeholder, id, autoplay){
+    const iframe = document.createElement('iframe');
+    const params = new URLSearchParams({ autoplay: autoplay ? '1' : '0', rel:'0', modestbranding:'1', playsinline:'1' });
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?${params.toString()}`;
+    iframe.title = 'YouTube video';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.loading = 'lazy';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = '0';
+    placeholder.replaceWith(iframe);
+  }
+
+  // Καθάρισμα όταν αλλάζει slide (ελευθέρωση RAM)
+  carousel.addEventListener('slide.bs.carousel', () => {
+    const active = carousel.querySelector('.carousel-item.active');
+    if(!active) return;
+    const iframe = active.querySelector('iframe');
+    if(iframe){
+      const id = (iframe.src.match(/\/embed\/([^/?#]+)/)||[])[1] || '';
+      const ratio = active.querySelector('.ratio');
+      const ph = document.createElement('div');
+      ph.className = 'yt-lite';
+      ph.setAttribute('data-video-id', id);
+      ph.setAttribute('aria-label','Play video');
+      ph.innerHTML = `
+        <img class="yt-thumb" alt="Video thumbnail" loading="lazy"
+             src="https://i.ytimg.com/vi/${id}/hqdefault.jpg">
+        <button class="yt-play" aria-label="Play"></button>`;
+      ph.addEventListener('click', ()=> mountIframe(ph, id, true), { once: true });
+      iframe.replaceWith(ph);
+    }
+  });
+})();
+</script>
 
 <!-- Logo Slider -->
 
+<style>
+ body {
+	align-items: center;
+	justify-content: center;
+}
 
 
-<section class="logo-slider-section">
-  <div class="logo-slider">
-    <div class="slide-track" id="slideTrack">
-      <div class="slide"><img src="assets/rational.png" alt="Rational" loading="lazy"></div>
-      <div class="slide"><img src="assets/polaris_logo.png" alt="Polaris" loading="lazy"></div>
-      <div class="slide"><img src="assets/ataslr_logo.png" alt="Ataslr" loading="lazy"></div>
-      <div class="slide"><img src="assets/gico_logo.JPG" alt="Gico" loading="lazy"></div>
-      <div class="slide"><img src="assets/aristaco.png" alt="Aristaco" loading="lazy"></div>
-      <div class="slide"><img src="assets/blue_seal.png" alt="Blue Seal" loading="lazy"></div>
-      <div class="slide"><img src="assets/casta.png" alt="Casta" loading="lazy"></div>
-      <div class="slide"><img src="assets/fimar.png" alt="Fimar" loading="lazy"></div>
-      <div class="slide"><img src="assets/inomak.png" alt="Inomak" loading="lazy"></div>
-      <div class="slide"><img src="assets/jtc.png" alt="JTC" loading="lazy"></div>
-      <div class="slide"><img src="assets/kopa.jpg" alt="Kopa" loading="lazy"></div>
-      <div class="slide"><img src="assets/pasquini.png" alt="Pasquini" loading="lazy"></div>
-      <div class="slide"><img src="assets/offcar.png" alt="Offcar" loading="lazy"></div>
-      <div class="slide"><img src="assets/sirman.png" alt="Sirman" loading="lazy"></div>
-      <div class="slide"><img src="assets/tecfrigo.png" alt="Tecfrigo" loading="lazy"></div>
-    </div>
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 15))}
+}
+
+.logo-slider {
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: auto;
+	
+	.slide-track {
+    gap: 50px;
+		animation: scroll 10s linear infinite;
+		display: flex;
+		width: calc(250px * 30);
+	}
+	.slide {
+		height: 60px;
+		width: 200px;
+	}
+}
+	.slide {
+    padding-right: 2vw;
+	}
+</style>
+
+<div class="logo-slider">
+  <div class="slide-track" id="slideTrack">
+    <!-- 15 μοναδικά -->
+    <div class="slide"><img src="assets/rational.png" height="60" width="200" alt="Rational"></div>
+    <div class="slide"><img src="assets/polaris_logo.png" height="60" width="200" alt="Polaris"></div>
+    <div class="slide"><img src="assets/ataslr_logo.png" height="60" width="200" alt="Ataslr"></div>
+    <div class="slide"><img src="assets/gico_logo.JPG" height="60" width="200" alt="Gico"></div>
+    <div class="slide"><img src="assets/aristaco.png" height="60" width="200" alt="Aristaco"></div>
+    <div class="slide"><img src="assets/blue_seal.png" height="60" width="200" alt="Blue Seal"></div>
+    <div class="slide"><img src="assets/casta.png" height="60" width="200" alt="Casta"></div>
+    <div class="slide"><img src="assets/fimar.png" height="60" width="200" alt="Fimar"></div>
+    <div class="slide"><img src="assets/inomak.png" height="60" width="200" alt="Inomak"></div>
+    <div class="slide"><img src="assets/jtc.png" height="60" width="200" alt="JTC"></div>
+    <div class="slide"><img src="assets/kopa.jpg" height="60" width="200" alt="Kopa"></div>
+    <div class="slide"><img src="assets/pasquini.png" height="60" width="200" alt="Pasquini"></div>
+    <div class="slide"><img src="assets/offcar.png" height="60" width="200" alt="Offcar"></div>
+    <div class="slide"><img src="assets/sirman.png" height="60" width="200" alt="Sirman"></div>
+    <div class="slide"><img src="assets/tecfrigo.png" height="90" width="200" alt="Tecfrigo"></div>
+
+    <!-- αντίγραφα για seamless loop -->
+    <div class="slide"><img src="assets/rational.png" height="60" width="200" alt="Rational"></div>
+    <div class="slide"><img src="assets/polaris_logo.png" height="60" width="200" alt="Polaris"></div>
+    <div class="slide"><img src="assets/ataslr_logo.png" height="60" width="200" alt="Ataslr"></div>
+    <div class="slide"><img src="assets/gico_logo.JPG" height="60" width="200" alt="Gico"></div>
+    <div class="slide"><img src="assets/aristaco.png" height="60" width="200" alt="Aristaco"></div>
+    <div class="slide"><img src="assets/blue_seal.png" height="60" width="200" alt="Blue Seal"></div>
+    <div class="slide"><img src="assets/casta.png" height="60" width="200" alt="Casta"></div>
+    <div class="slide"><img src="assets/fimar.png" height="60" width="200" alt="Fimar"></div>
+    <div class="slide"><img src="assets/inomak.png" height="60" width="200" alt="Inomak"></div>
+    <div class="slide"><img src="assets/jtc.png" height="60" width="200" alt="JTC"></div>
+    <div class="slide"><img src="assets/kopa.jpg" height="60" width="200" alt="Kopa"></div>
+    <div class="slide"><img src="assets/pasquini.png" height="60" width="200" alt="Pasquini"></div>
+    <div class="slide"><img src="assets/offcar.png" height="60" width="200" alt="Offcar"></div>
+    <div class="slide"><img src="assets/sirman.png" height="60" width="200" alt="Sirman"></div>
+    <div class="slide"><img src="assets/tecfrigo.png" height="60" width="200" alt="Tecfrigo"></div>
   </div>
-</section>
+</div>
 
-</body>
 
 <footer class="footer bg-dark text-white py-4">
   <div class="social-links">
@@ -349,35 +479,6 @@
 </footer>
 
 
-  <!-- <script>
-    function loadPage(page) {
-      fetch(page + ".html")
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById("main-content").innerHTML = html;
-        });
-    }
-    window.onload = () => loadPage("home");
-  </script> -->
-
-  <!-- Bootstrap JS στο τέλος -->
-<script>
-const track = document.getElementById('slideTrack');
-const slides = Array.from(track.children);
-
-// Κλωνοποιούμε για infinite loop
-slides.forEach(slide => {
-  const clone = slide.cloneNode(true);
-  track.appendChild(clone);
-});
-
-// Υπολογίζουμε το μισό πλάτος (γιατί έχουμε διπλά slides)
-const halfWidth = track.scrollWidth / 2;
-document.documentElement.style.setProperty('--scroll-width', `${halfWidth}px`);
-
-// Ορίζουμε ταχύτητα animation
-document.documentElement.style.setProperty('--scroll-speed', '40s'); // πιο γρήγορο
-</script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
