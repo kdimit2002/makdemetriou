@@ -966,18 +966,3 @@ max-width: none;
 }
 
 
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .slide img {
-    height: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .slide img {
-    height: 30px;
-  }
-}
-

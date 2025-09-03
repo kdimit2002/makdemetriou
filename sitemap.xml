@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home (όλες οι εικόνες επειδή είναι στο index.html) -->
+  <url>
+    <loc>https://makdemetriou.com.cy/</loc>
+    <lastmod>2025-09-03</lastmod>
+    <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>https://makdemetriou.com.cy/assets/Mak_Demetriou_Logo.png</image:loc>
+      <image:title>MAK Demetriou Catering Equipment Logo Cyprus</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://makdemetriou.com.cy/assets/rational-icombi-ivario.jpg</image:loc>
+      <image:title>Rational iVario Pro – Commercial Cooking System</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://makdemetriou.com.cy/assets/icombi_home2.jpg</image:loc>
+      <image:title>Rational iCombi Pro – Professional Combi Oven</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://makdemetriou.com.cy/assets/geniouslogical.jpg</image:loc>
+      <image:title>Polaris Blast Chiller – Professional Kitchen Equipment</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://makdemetriou.com.cy/assets/ataslr.jpg</image:loc>
+      <image:title>ATA Performance Line – Commercial Dishwasher</image:title>
+    </image:image>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://makdemetriou.com.cy/about/</loc>
+    <lastmod>2025-09-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Products (hub page, χωρίς images αν δεν εμφανίζονται εκεί) -->
+  <url>
+    <loc>https://makdemetriou.com.cy/products/</loc>
+    <lastmod>2025-09-03</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://makdemetriou.com.cy/contact/</loc>
+    <lastmod>2025-09-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
