@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAK Demetriou</title>
+  <title>About Us | MAK Demetriou — Professional Catering Equipment in Cyprus</title>
+  <!-- Meta Description -->
+  <meta name="description" content="Learn about MAK Demetriou: professional catering equipment, kitchen design, installation, and maintenance in Cyprus since 1996. Quality, innovation, service." />
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://makdemetriou.com.cy/about" />
+
+    <!-- Preconnect for faster fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <link rel="icon"  type="image/x-icon" href="/favicon.ico">
@@ -13,13 +21,52 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- 2. δικό σου CSS μετά -->
   <link rel="stylesheet" href="about.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About MAK Demetriou — Professional Catering Equipment in Cyprus">
+  <meta property="og:description" content="Since 1996, we provide catering equipment, kitchen design, installation & maintenance in Cyprus.">
+  <meta property="og:url" content="https://makdemetriou.com.cy/about">
+  <meta property="og:image" content="https://makdemetriou.com.cy/assets/Mak_Demetriou_Logo.png">
+
+  <script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Home","item":"https://makdemetriou.com.cy/"},
+            {"@type":"ListItem","position":2,"name":"About","item":"https://makdemetriou.com.cy/about"}
+        ]
+    }
+    </script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AboutPage",
+  "name":"About MAK Demetriou",
+  "url":"https://makdemetriou.com.cy/about",
+  "mainEntity":{
+    "@type":"Organization",
+    "name":"MAK Demetriou Catering Equipment",
+    "url":"https://makdemetriou.com.cy",
+    "logo":"https://makdemetriou.com.cy/assets/Mak_Demetriou_Logo.png",
+    "sameAs":[
+      "https://www.facebook.com/profile.php?id=61568395726106",
+      "https://www.instagram.com/mak_demetriou/"
+    ],
+    "description":"Professional catering equipment, kitchen design, installation, and maintenance services in Cyprus since 1996."
+  }
+}
+</script>
+
+
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-5">
     <div class="container-fluid">
 
     <a class="navbar-brand mx-auto d-lg-none" href="#">
-      <img src="assets/Mak_Demetriou_Logo.png" alt="Λογότυπο">
+      <img src="assets/Mak_Demetriou_Logo.png" loading="lazy" alt="Mak Demetriou logo">
     </a>
       <!-- Hamburger button -->
       <button class="navbar-toggler" type="button"
@@ -34,21 +81,21 @@
       <!-- Collapsible menu -->
       <div class="collapse navbar-collapse" id="navbarNav">
       <a class="navbar-brand d-none d-lg-flex" href="#">
-        <img src="assets/Mak_Demetriou_Logo.png" alt="Λογότυπο">
+        <img src="assets/Mak_Demetriou_Logo.png" loading="lazy" alt="Mak Demetriou logo">
       </a>
 
 <ul class="navbar-nav gap-3 fs-5 ms-4 ms-lg-2">
   <li class="nav-item menu-links">
-    <a class="nav-link fw-semibold" href="../">Home</a>
+    <a class="nav-link fw-semibold" href="/">Home</a>
   </li>
   <li class="nav-item menu-links">
-    <a class="nav-link fw-semibold" href="../about">About us</a>
+    <a class="nav-link fw-semibold" href="/about/">About us</a>
   </li>
   <li class="nav-item menu-links">
-    <a class="nav-link fw-semibold" href="../products">Products</a>
+    <a class="nav-link fw-semibold" href="/products/">Products</a>
   </li>
   <li class="nav-item menu-links">
-    <a class="nav-link fw-semibold" href="../contact">Contact</a>
+    <a class="nav-link fw-semibold" href="/contact/">Contact</a>
   </li>
 </ul>
       </div>
@@ -69,6 +116,7 @@
 
 
 
+
   <section class="about-section">
     <h2 class="about-title">Who We Are</h2>
     <div class="about-subtitle">
@@ -86,14 +134,19 @@
     </div>
     <div class="about-footer">
       MAK Demetriou: Trust, expertise, and true care for every food service professional.
-    </div>
+    </div><br>
+<!-- <div class="cta-box text-center p-4 mt-4 bg-light rounded shadow-sm">
+  <p class="mb-3 fs-5">Ready to upgrade your professional kitchen?</p>
+  <a href="/products" class="btn btn-primary me-2">Explore Products</a>
+  <a href="/contact" class="btn btn-outline-primary">Get in Touch</a>
+</div> -->
+
   </section>
 </main>
 
 
 
 
-<!-- SERVICES -->
 <!-- SERVICES -->
 <section class="services-modern-section">
   <h2 class="services-modern-title">Professional Services</h2>
@@ -104,7 +157,7 @@
         <div class="service-desc">Fully tailored professional kitchens with precise layouts provided before construction begins.</div>
       </div>
       <div class="service-img">
-        <img src="assets/Services1.png" loading="lazy" alt="Σχεδιασμός"/>
+        <img src="assets/Services1.png" loading="lazy" alt="Kitchen design service"/>
       </div>
     </div>
 
@@ -114,7 +167,7 @@
         <div class="service-desc">We handle the entire process—from delivery to full operation.</div>
       </div>
       <div class="service-img">
-        <img src="assets/Service_install.jpg" loading="lazy" alt="Εγκατάσταση" />
+        <img src="assets/Service_install.jpg" loading="lazy" alt="Professional installation" />
       </div>
     </div>
 
@@ -124,7 +177,7 @@
         <div class="service-desc">Reliable after-sales service and preventive maintenance programs.</div>
       </div>
       <div class="service-img">
-        <img src="assets/Service_repair.png" loading="lazy" alt="Υποστήριξη" />
+        <img src="assets/Service_repair.png" loading="lazy" alt="Technical support and maintenance" />
       </div>
     </div>
 
@@ -134,7 +187,7 @@
         <div class="service-desc">We train your team on the latest market solutions and technologies.</div>
       </div>
       <div class="service-img">
-        <img src="assets/Services2.png" loading="lazy" alt="Εκπαίδευση" />
+        <img src="assets/Services2.png" loading="lazy" alt="Staff training" />
       </div>
     </div>
 
@@ -144,7 +197,7 @@
         <div class="service-desc">We’re always by your side when you need us—fast and efficient.</div>
       </div>
       <div class="service-img">
-        <img src="assets/Service_tools.png" loading="lazy" alt="Άμεση Ανταπόκριση" />
+        <img src="assets/Service_tools.png" loading="lazy" alt="Emergency service response" />
       </div>
     </div>
 
