@@ -223,3 +223,73 @@ body {
   font-size:clamp(0.8rem,1.0vw,1.4rem);
   opacity: 0.9;
 }
+
+
+
+
+/* --- XXL+ (>=1900px) --- */
+:root{
+  /* Άλλαξέ το αν θέλεις πιο φαρδύ περιεχόμενο σε πολύ μεγάλες οθόνες */
+  --container-3xl: 1680px;
+}
+
+@media (min-width: 1900px) {
+  /* Κεντράρουμε & “δένουμε” περιεχόμενο */
+  /* Λίγο μεγαλύτερα κενά/τυπογραφία για άνεση ανάγνωσης */
+  .contact-section {         padding-left: 10vw;padding-right: 30vw;
+padding-top: 10vw; padding-bottom: 10vw; }
+  
+  .contact-card {
+    width: 50vw; /* πιο φαρδύ σε μεγάλες οθόνες */
+  }
+  .contact-card {
+    font-size: 1vw; /* ~18px */
+  }
+
+  .contact-card h1 {
+    font-size: 2vw;
+  }
+
+  .social-icon { font-size: 3vw; }
+  .btn { padding: 0.9rem 1.2rem; font-size: 1.5vw; }
+
+}
+
+/* (Προαιρετικό) Ελαφρά fluid τυπογραφία σε όλες τις αναλύσεις */
+
+
+
+/* ======= FOOTER & HERO για πολύ μεγάλες οθόνες (≥ 2200px) ======= */
+@media (min-width: 2000px) {
+
+  /* FOOTER */
+  .footer {
+    padding-left: 1vw; /* λίγο παραπάνω κενό για ισορροπία */
+  }
+  .footer .social-links {
+    gap: 3rem; /* μεγαλύτερη απόσταση ανάμεσα στα icons */
+  }
+  .footer .social-icon {
+    font-size: 1.5vw; /* εμφανή σε 4K/8K */
+    padding-bottom: 1.5rem;
+  }
+  .footer .footer-copy {
+    font-size: 1vw;
+  }
+
+  /* HERO SECTION */
+  .main {
+    height: 90vh; /* πιο ψηλό hero */
+    background-size: contain; /* για να φαίνεται όλη η εικόνα */
+  }
+  .hero-content {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+  .hero-content h1 {
+    font-size: 4.2rem;
+  }
+  .hero-content p.lead {
+    font-size: 2rem;
+  }
+}

@@ -547,11 +547,11 @@ background: linear-gradient(
   }
 
   /* Container διάταξης */
-  .rational-icombi-layout,
-  .rational-icombi-layout1 {
+  .rational-icombi-ivario-layout,
+  .rational-icombi--vario-layout1 {
     gap: 4vw;          /* μεγαλύτερο κενό μεταξύ στοιχείων */
-width: 80vw;
-max-width: none;
+    width: 80vw;
+    max-width: none;
     transform: translate(-2);    /* κεντραρισμένο */
     padding: 6rem 4rem;
   }
