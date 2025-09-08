@@ -614,7 +614,7 @@ background: linear-gradient(
 /* κλιμακωτό μέγεθος για το logo */
 .polaris-logo-img {
   display: inline-block;
-  width: clamp(15rem, 30vw,23rem);
+  width: clamp(13rem, 25vw,23rem);
   /* ποτέ μικρότερο από 150px, ιδανικά 10% του viewport, ούτε πάνω από 300px */
   height: auto;
 }
@@ -653,8 +653,20 @@ background: linear-gradient(
   display: block;
   margin-left: auto; /* την σπρώχνει δεξιά */
 }
+/* ------------ */
+.ataslr-section .ataslr-image a,
+.polaris-section a {
+  display: inline-block; /* ή block αν θέλεις να πιάνει όλο το πλάτος του container */
+  line-height: 0;        /* εξαφανίζει το extra κενό */
+}
 
-
+.ataslr-section .ataslr-image img,
+.polaris-section img {
+  display: block;        /* για να μην επηρεάζεται από line-height */
+  width: 90%;           /* αφήνει τον έλεγχο στο container/κλάσεις */
+  height: auto;
+}
+/* ----------------- */
 /* Responsive αλλαγή στα 768px */
 @media (max-width: 768px) {
   .polaris-img {
