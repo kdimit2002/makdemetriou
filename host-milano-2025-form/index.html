@@ -119,7 +119,7 @@
     .actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
     .privacy { font-size:13px; color:var(--muted); line-height:1.6; max-width:700px; }
 
-    /* --------- Toast επιβεβαίωσης: ΔΕΝ μετακινεί το layout --------- */
+    /* --------- Toast επιβεβαίωσης --------- */
     .confirm{
       display:none;
       position:fixed; left:50%; bottom:24px; transform:translateX(-50%);
@@ -160,48 +160,33 @@
       .actions { flex-direction: column; align-items: stretch; }
     }
 
+    /* error highlight */
     input[style*="border-color: #E30613"],
-textarea[style*="border-color: #E30613"],
-select[style*="border-color: #E30613"] {
-  box-shadow: 0 0 0 3px rgba(227,6,19,0.12);
-}
+    textarea[style*="border-color: #E30613"],
+    select[style*="border-color: #E30613"] {
+      box-shadow: 0 0 0 3px rgba(227,6,19,0.12);
+    }
 
-#loading-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(3px);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-}
-
-#loading-overlay.active {
-  display: flex;
-}
-
-.loading-box {
-  text-align: center;
-  font-family: sans-serif;
-  color: #333;
-}
-
-.spinner {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #ccc;
-  border-top-color: #0078d7;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 12px;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-
+    /* Loading overlay */
+    #loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(3px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #loading-overlay.active { display: flex; }
+    .loading-box { text-align: center; font-family: sans-serif; color: #333; }
+    .spinner {
+      width: 48px; height: 48px;
+      border: 5px solid #ccc; border-top-color: #0078d7;
+      border-radius: 50%; animation: spin 1s linear infinite;
+      margin: 0 auto 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -244,110 +229,103 @@ select[style*="border-color: #E30613"] {
     <div class="form-wrap" aria-labelledby="formTitle">
       <div class="form-header"><h3 id="formTitle">Φόρμα Επικοινωνίας</h3></div>
       <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
-<form action="https://formsubmit.co/info@makdemetriou.com.cy"
-      method="POST"
-      accept-charset="UTF-8">
 
-  <!-- FormSubmit settings -->
-  <input type="hidden" name="_subject" value="Contact Form – MAK Demetriou">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://makdemetriou.com.cy/host-milano-2025-form/thankyou.html">
+      <!-- ΚΥΡΙΑ ΦΟΡΜΑ -->
+      <form id="contactForm"
+            action="https://formsubmit.co/info@makdemetriou.com.cy"
+            method="POST"
+            accept-charset="UTF-8">
 
-  <!-- Honeypot -->
-  <input type="text" name="_honey" style="display:none">
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="Contact Form – MAK Demetriou">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://makdemetriou.com.cy/host-milano-2025-form/thankyou.html">
 
-  <!-- Form fields -->
-  <div class="grid">
-    <div class="field">
-      <label for="company">Όνομα / Εταιρεία</label>
-      <input id="company" name="company" type="text" placeholder="π.χ. MAK Demetriou">
-    </div>
-    <div class="field">
-      <label for="business_type">Είδος επιχείρησης *</label>
-      <select id="business_type" name="business_type" required>
-        <option value="" disabled selected>Επιλέξτε</option>
-        <option value="restaurant">Εστιατόριο</option>
-        <option value="hotel">Ξενοδοχείο</option>
-        <option value="catering">Catering</option>
-        <option value="other">Άλλο</option>
-      </select>
-    </div>
-  </div>
+        <!-- Honeypot -->
+        <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1">
 
-  <div class="field">
-    <label for="needs">Τι εξοπλισμό αναζητάτε ή ποιο πρόβλημα αντιμετωπίζετε; *</label>
-    <textarea id="needs" name="needs" placeholder="Περιγράψτε με λίγα λόγια…" required></textarea>
-    <div class="chips" aria-label="Ταχείες προτάσεις">
-      <span class="chip" data-insert="ψυγεία">ψυγεία</span>
-      <span class="chip" data-insert="φούρνοι">φούρνοι</span>
-      <span class="chip" data-insert="πλυντήρια πιάτων">πλυντήρια πιάτων</span>
-      <span class="chip" data-insert="πάγκοι ανοξείδωτοι">πάγκοι ανοξείδωτοι</span>
-      <span class="chip" data-insert="σύστημα αποθήκευσης">σύστημα αποθήκευσης</span>
-    </div>
-  </div>
+        <!-- Form fields -->
+        <div class="grid">
+          <div class="field">
+            <label for="company">Όνομα / Εταιρεία</label>
+            <input id="company" name="company" type="text" placeholder="π.χ. MAK Demetriou">
+          </div>
+          <div class="field">
+            <label for="business_type">Είδος επιχείρησης *</label>
+            <select id="business_type" name="business_type" required>
+              <option value="" disabled selected>Επιλέξτε</option>
+              <option value="restaurant">Εστιατόριο</option>
+              <option value="hotel">Ξενοδοχείο</option>
+              <option value="catering">Catering</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+        </div>
 
-  <div class="field">
-    <label>Προτεραιότητα *</label>
-    <div class="radios" role="radiogroup" aria-label="Προτεραιότητα">
-      <label class="radio-item"><input type="radio" name="priority" value="energy" required> Ενεργειακή απόδοση</label>
-      <label class="radio-item"><input type="radio" name="priority" value="reliability"> Αντοχή και αξιοπιστία</label>
-      <label class="radio-item"><input type="radio" name="priority" value="innovation"> Νέες τεχνολογίες</label>
-      <label class="radio-item"><input type="radio" name="priority" value="price"> Τιμή / οικονομική λύση</label>
-      <label class="radio-item"><input type="radio" name="priority" value="other"> Άλλο</label>
-    </div>
-  </div>
+        <div class="field">
+          <label for="needs">Τι εξοπλισμό αναζητάτε ή ποιο πρόβλημα αντιμετωπίζετε; *</label>
+          <textarea id="needs" name="needs" placeholder="Περιγράψτε με λίγα λόγια…" required></textarea>
+          <div class="chips" aria-label="Ταχείες προτάσεις">
+            <span class="chip" data-insert="ψυγεία">ψυγεία</span>
+            <span class="chip" data-insert="φούρνοι">φούρνοι</span>
+            <span class="chip" data-insert="πλυντήρια πιάτων">πλυντήρια πιάτων</span>
+            <span class="chip" data-insert="πάγκοι ανοξείδωτοι">πάγκοι ανοξείδωτοι</span>
+            <span class="chip" data-insert="σύστημα αποθήκευσης">σύστημα αποθήκευσης</span>
+          </div>
+        </div>
 
-  <div class="grid">
-    <div class="field">
-      <label for="contact">Email ή τηλέφωνο *</label>
-      <input id="contact" name="contact" type="text" placeholder="π.χ. info@makdemetriou.com ή +357…" required>
-    </div>
-    <div class="field">
-      <label for="anonymous">Επιλογές υποβολής</label>
-      <label style="display:flex; gap:10px; align-items:center; font-size:14px; color:#222;">
-        <input id="anonymous" name="anonymous" type="checkbox" value="yes">
-        <span>Θέλω η απάντησή μου να παραμείνει ανώνυμη.</span>
-      </label>
-    </div>
-  </div>
+        <div class="field">
+          <label>Προτεραιότητα *</label>
+          <div class="radios" role="radiogroup" aria-label="Προτεραιότητα">
+            <label class="radio-item"><input type="radio" name="priority" value="energy" required> Ενεργειακή απόδοση</label>
+            <label class="radio-item"><input type="radio" name="priority" value="reliability"> Αντοχή και αξιοπιστία</label>
+            <label class="radio-item"><input type="radio" name="priority" value="innovation"> Νέες τεχνολογίες</label>
+            <label class="radio-item"><input type="radio" name="priority" value="price"> Τιμή / οικονομική λύση</label>
+            <label class="radio-item"><input type="radio" name="priority" value="other"> Άλλο</label>
+          </div>
+        </div>
 
-  <div class="actions">
-    <button class="btn" type="submit">Στείλτε μας τις ανάγκες σας</button>
-    <div class="privacy">
-      Οι πληροφορίες που υποβάλλονται παραμένουν εμπιστευτικές. Οι ανώνυμες απαντήσεις χρησιμοποιούνται αποκλειστικά για ερευνητικούς σκοπούς στο πλαίσιο του event.
-    </div>
-  </div>
-</form>
+        <div class="grid">
+          <div class="field">
+            <label for="contact">Email ή τηλέφωνο *</label>
+            <input id="contact" name="contact" type="text" placeholder="π.χ. info@makdemetriou.com ή +357…" required>
+          </div>
+          <div class="field">
+            <label for="anonymous">Επιλογές υποβολής</label>
+            <label style="display:flex; gap:10px; align-items:center; font-size:14px; color:#222;">
+              <input id="anonymous" name="anonymous" type="checkbox" value="yes">
+              <span>Θέλω η απάντησή μου να παραμείνει ανώνυμη.</span>
+            </label>
+          </div>
+        </div>
 
-
-
-
+        <div class="actions">
+          <button class="btn" type="submit">Στείλτε μας τις ανάγκες σας</button>
+          <div class="privacy">
+            Οι πληροφορίες που υποβάλλονται παραμένουν εμπιστευτικές. Οι ανώνυμες απαντήσεις χρησιμοποιούνται αποκλειστικά για ερευνητικούς σκοπούς στο πλαίσιο του event.
+          </div>
+        </div>
+      </form>
     </div>
   </section>
 
-
-
-<!-- Please wait -->
-  <div id="loading-overlay">
-  <div class="loading-box">
-    <div class="spinner"></div>
-    <p>Αποστολή... Παρακαλώ περιμένετε</p>
+  <!-- Loading overlay -->
+  <div id="loading-overlay" aria-hidden="true">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p>Αποστολή... Παρακαλώ περιμένετε</p>
+    </div>
   </div>
-</div>
 
-
-
-
-
-<form action="https://formsubmit.co/19bc0a5dba1c94cf992326a68059dab6" method="POST" accept-charset="UTF-8"  target="_blank">
-  <input type="hidden" name="_subject" value="Test submit - MAK Demetriou">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="text"   name="contact" placeholder="Email ή τηλέφωνο" required>
-  <textarea name="needs" placeholder="Τι χρειάζεστε;" required></textarea>
-  <button type="submit">Send test</button>
-</form>
-
+  <!-- Δεύτερη test φόρμα (προαιρετική / ανεπηρέαστη από overlay) -->
+  <form action="https://formsubmit.co/19bc0a5dba1c94cf992326a68059dab6" method="POST" accept-charset="UTF-8" target="_blank" style="padding:20px;">
+    <input type="hidden" name="_subject" value="Test submit - MAK Demetriou">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text"   name="contact" placeholder="Email ή τηλέφωνο" required>
+    <textarea name="needs" placeholder="Τι χρειάζεστε;" required></textarea>
+    <button type="submit">Send test</button>
+  </form>
 
   <!-- Footer -->
   <footer id="contact">
@@ -359,7 +337,7 @@ select[style*="border-color: #E30613"] {
     </div>
   </footer>
 
-  <!-- Modal -->
+  <!-- Modal (δεν χρησιμοποιείται στο submit) -->
   <div class="modal" id="modal">
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <h4 id="modalTitle">Η απάντησή σας καταγράφηκε επιτυχώς!</h4>
@@ -367,195 +345,174 @@ select[style*="border-color: #E30613"] {
       <button class="btn" id="modalClose">Κλείσιμο</button>
     </div>
   </div>
-<script>
-  // ---------- Logo micro animation ----------
-  (function(){
-    var logoImg = document.getElementById('logo');
-    if(!logoImg) return;
-    var lastY = 0;
-    window.addEventListener('scroll', function(){
-      var y = window.scrollY;
-      var delta = Math.min(Math.max((y - lastY)/200, -0.06), 0.06);
-      logoImg.style.transform = 'rotate(' + (delta*12) + 'deg) scale(' + (1 + Math.abs(delta)/6) + ')';
-      lastY = y;
-    }, { passive: true });
-  })();
 
-  // ---------- Smooth scroll CTA (επιτρέπεται preventDefault εδώ) ----------
-  (function(){
-    var cta = document.getElementById('ctaBtn');
-    if(!cta) return;
-    cta.addEventListener('click', function(e){
-      e.preventDefault();
-      var target = document.getElementById('form');
-      if(target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-  })();
+  <script>
+    // ---------- Logo micro animation ----------
+    (function(){
+      const logoImg = document.getElementById('logo');
+      if(!logoImg) return;
+      let lastY = 0;
+      window.addEventListener('scroll', function(){
+        const y = window.scrollY;
+        const delta = Math.min(Math.max((y - lastY)/200, -0.06), 0.06);
+        logoImg.style.transform = 'rotate(' + (delta*12) + 'deg) scale(' + (1 + Math.abs(delta)/6) + ')';
+        lastY = y;
+      }, { passive: true });
+    })();
 
-  // ---------- Chips -> append στο textarea ----------
-  (function(){
-    var chips = document.querySelectorAll('.chip');
-    if(!chips.length) return;
-    var ta = document.getElementById('needs') || document.getElementById('need') || document.querySelector('textarea');
-    chips.forEach(function(ch){
-      ch.addEventListener('click', function(){
-        if(!ta) return;
-        var ins = ch.getAttribute('data-insert') || '';
-        var sep = ta.value && !ta.value.endsWith(' ') ? ' ' : '';
-        ta.value += sep + ins;
-        ta.focus();
+    // ---------- Smooth scroll CTA ----------
+    (function(){
+      const cta = document.getElementById('ctaBtn');
+      if(!cta) return;
+      cta.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.getElementById('form');
+        if(target) target.scrollIntoView({ behavior: 'smooth' });
       });
-    });
-  })();
+    })();
 
-  // ---------- Επιλογή στοιχείων φόρμας ----------
-  var form = document.getElementById('contactForm') || document.querySelector('section#form form');
-  if (!form) { console.warn('Form not found'); }
+    // ---------- Chips -> append στο textarea ----------
+    (function(){
+      const chips = document.querySelectorAll('.chip');
+      if(!chips.length) return;
+      const ta = document.getElementById('needs');
+      chips.forEach(function(ch){
+        ch.addEventListener('click', function(){
+          if(!ta) return;
+          const ins = ch.getAttribute('data-insert') || '';
+          const sep = ta.value && !ta.value.endsWith(' ') ? ' ' : '';
+          ta.value += sep + ins;
+          ta.focus();
+        });
+      });
+    })();
 
-  // Αναφορές με fallback (ASCII ή τα παλιά)
-  var anonEl     = document.getElementById('anonymous');
-  var companyEl  = document.getElementById('company')        || document.getElementById('name');
-  var contactEl  = document.getElementById('contact');
-  var businessEl = document.getElementById('business_type')  || document.getElementById('type');
-  var needsEl    = document.getElementById('needs')          || document.getElementById('need');
-  var priorityEls= form ? form.querySelectorAll('input[name="priority"], input[name="Προτεραιότητα"]') : [];
+    // ---------- Επιλογή στοιχείων φόρμας ----------
+    const form       = document.getElementById('contactForm');
+    if (!form) { console.warn('Form not found'); }
 
-  // ---------- Ανωνυμία: καθάρισμα & (απο)ενεργοποίηση company/contact ----------
-  (function(){
-    if(!anonEl || !companyEl || !contactEl) return;
-    function applyAnonState(){
-      if (anonEl.checked){
-        companyEl.value = '';
-        contactEl.value = '';
-        companyEl.disabled = true;
-        contactEl.disabled = true;
-        contactEl.removeAttribute('required'); // contact δεν απαιτείται όταν ανώνυμο
-        companyEl.style.backgroundColor = '#f4f4f4';
-        contactEl.style.backgroundColor = '#f4f4f4';
-        companyEl.style.cursor = 'not-allowed';
-        contactEl.style.cursor = 'not-allowed';
-      } else {
-        companyEl.disabled = false;
-        contactEl.disabled = false;
-        contactEl.setAttribute('required','');
-        companyEl.style.backgroundColor = '#fff';
-        contactEl.style.backgroundColor = '#fff';
-        companyEl.style.cursor = 'text';
-        contactEl.style.cursor = 'text';
+    const overlay    = document.getElementById('loading-overlay');
+    const anonEl     = document.getElementById('anonymous');
+    const companyEl  = document.getElementById('company');
+    const contactEl  = document.getElementById('contact');
+    const businessEl = document.getElementById('business_type');
+    const needsEl    = document.getElementById('needs');
+    const priorityEls= form ? form.querySelectorAll('input[name="priority"]') : [];
+
+    // Όριο λέξεων
+    const MAX_WORDS = 1000;
+
+    // ---------- Ανωνυμία: (απο)ενεργοποίηση πεδίων ----------
+    (function(){
+      if(!anonEl || !companyEl || !contactEl) return;
+      function applyAnonState(){
+        if (anonEl.checked){
+          companyEl.value = '';
+          contactEl.value = '';
+          companyEl.disabled = true;
+          contactEl.disabled = true;
+          contactEl.removeAttribute('required');
+          companyEl.style.backgroundColor = '#f4f4f4';
+          contactEl.style.backgroundColor = '#f4f4f4';
+          companyEl.style.cursor = 'not-allowed';
+          contactEl.style.cursor = 'not-allowed';
+        } else {
+          companyEl.disabled = false;
+          contactEl.disabled = false;
+          contactEl.setAttribute('required','');
+          companyEl.style.backgroundColor = '#fff';
+          contactEl.style.backgroundColor = '#fff';
+          companyEl.style.cursor = 'text';
+          contactEl.style.cursor = 'text';
+        }
       }
-    }
-    anonEl.addEventListener('change', applyAnonState);
-    applyAnonState();
-  })();
+      anonEl.addEventListener('change', applyAnonState);
+      applyAnonState();
+    })();
 
-  // ---------- Validation πριν την αποστολή ----------
-  (function(){
-    if(!form) return;
-
+    // ---------- Helpers για validation ----------
     function clearErrors(){
-      form.querySelectorAll('.error-msg').forEach(function(el){ el.remove(); });
-      form.querySelectorAll('input, textarea, select').forEach(function(el){ el.style.borderColor = '#ccc'; });
+      form.querySelectorAll('.error-msg').forEach(el => el.remove());
+      form.querySelectorAll('input, textarea, select').forEach(el => el.style.borderColor = '#ccc');
     }
-    function showError(el){
+    function showError(el, msg='Required'){
       if(!el) return;
       el.style.borderColor = '#E30613';
-      var msg = document.createElement('div');
-      msg.textContent = 'Required';
-      msg.className = 'error-msg';
-      msg.style.color = '#E30613';
-      msg.style.fontSize = '12px';
-      msg.style.marginTop = '2px';
-      el.insertAdjacentElement('afterend', msg);
+      const m = document.createElement('div');
+      m.textContent = msg;
+      m.className = 'error-msg';
+      m.style.color = '#E30613';
+      m.style.fontSize = '12px';
+      m.style.marginTop = '2px';
+      el.insertAdjacentElement('afterend', m);
     }
 
+    // ---------- Submit: Validation + Overlay ----------
     form.addEventListener('submit', function(e){
-      var valid = true;
+      let valid = true;
       clearErrors();
 
       // Υποχρεωτικά πεδία
-      if (businessEl && !businessEl.value) { showError(businessEl); valid = false; }
-      if (needsEl && !String(needsEl.value || '').trim()) { showError(needsEl); valid = false; }
+      if (!businessEl.value) { showError(businessEl); valid = false; }
+
+      const needsText = String(needsEl.value || '').trim();
+      if (!needsText) { showError(needsEl); valid = false; }
+
+      // Όριο λέξεων
+      const wordsCount = needsText ? needsText.split(/\s+/).length : 0;
+      if (wordsCount > MAX_WORDS) {
+        showError(needsEl, `Μέχρι ${MAX_WORDS} λέξεις (έχετε ${wordsCount}).`);
+        valid = false;
+      }
 
       // Radio επιλογή
-      var hasPriority = false;
-      if (priorityEls && priorityEls.length){
-        priorityEls.forEach(function(r){ if(r.checked) hasPriority = true; });
-      }
+      let hasPriority = false;
+      priorityEls.forEach(r => { if(r.checked) hasPriority = true; });
       if (!hasPriority){
-        var fieldContainer = (priorityEls[0] && priorityEls[0].closest('.field')) || form.querySelector('.field');
-        if (fieldContainer){
-          var msg = document.createElement('div');
-          msg.textContent = 'Required';
-          msg.className = 'error-msg';
-          msg.style.color = '#E30613';
-          msg.style.fontSize = '12px';
-          msg.style.marginTop = '4px';
-          fieldContainer.appendChild(msg);
+        const field = (priorityEls[0] && priorityEls[0].closest('.field')) || form.querySelector('.field');
+        if (field){
+          const m = document.createElement('div');
+          m.textContent = 'Required';
+          m.className = 'error-msg';
+          m.style.color = '#E30613';
+          m.style.fontSize = '12px';
+          m.style.marginTop = '4px';
+          field.appendChild(m);
         }
         valid = false;
       }
 
       // Αν δεν είναι ανώνυμος, ζητάμε contact
-      if (anonEl && !anonEl.checked && contactEl && !String(contactEl.value || '').trim()){
-        showError(contactEl);
-        valid = false;
+      if (!anonEl.checked){
+        if (!String(contactEl.value || '').trim()){
+          showError(contactEl);
+          valid = false;
+        }
       }
 
       if (!valid){
-        e.preventDefault(); // μπλοκάρουμε ΜΟΝΟ όταν υπάρχουν λάθη
-        var firstErr = form.querySelector('.error-msg');
+        e.preventDefault();
+        const firstErr = form.querySelector('.error-msg');
         if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
-      // --- Διαγνωστικό (προαιρετικό): δες τι στέλνεται στη κονσόλα ---
-      try {
-        var entries = Array.from(new FormData(form).entries());
-        console.log('Form data about to send:', entries);
-      } catch(_) {}
-      // Δεν κάνουμε preventDefault -> αφήνουμε το browser να POST-άρει στο FormSubmit
-      // Το FormSubmit θα κάνει redirect στο _next, οπότε μην εμφανίζεις εδώ modal/toast
+      // ✅ Όλα ΟΚ → δείξε overlay & κλείδωσε τη σελίδα μέχρι το redirect στο _next
+      overlay.classList.add('active');
+
+      // Κλείδωμα αλληλεπίδρασης
+      document.querySelectorAll('input, textarea, button, select').forEach(el => el.disabled = true);
+      document.body.style.pointerEvents = 'none';
+      overlay.style.pointerEvents = 'auto';
     });
-  })();
 
-  // ---------- Modal close helpers (προαιρετικά) ----------
-  (function(){
-    var modal = document.getElementById('modal');
-    var modalClose = document.getElementById('modalClose');
-    if (modalClose) modalClose.addEventListener('click', function(){ if(modal) modal.style.display = 'none'; });
-    if (modal) modal.addEventListener('click', function(e){ if(e.target === modal) modal.style.display = 'none'; });
-  })();
-    const form = document.querySelector('form');
-  const textarea = document.getElementById('needs');
-  const MAX_WORDS = 1000;
-
-  form.addEventListener('submit', function (e) {
-    const words = textarea.value.trim().split(/\s+/);
-    if (words.length > MAX_WORDS) {
-      e.preventDefault();
-      alert(`Το κείμενό σας ξεπερνά το όριο των ${MAX_WORDS} λέξεων (${words.length} λέξεις). Παρακαλώ μειώστε το περιεχόμενο.`);
-      textarea.focus();
-    }
-  });
-  const overlay = document.getElementById('loading-overlay');
-
-  form.addEventListener('submit', function (e) {
-    const words = textarea.value.trim().split(/\s+/);
-    if (words.length > MAX_WORDS) {
-      e.preventDefault();
-      alert(`Το κείμενό σας ξεπερνά το όριο των ${MAX_WORDS} λέξεων (${words.length} λέξεις). Παρακαλώ μειώστε το περιεχόμενο.`);
-      textarea.focus();
-      return;
-    }
-
-    // Ενεργοποιεί το overlay και απενεργοποιεί όλη τη σελίδα
-    overlay.classList.add('active');
-
-    // Προαιρετικά: απενεργοποιεί όλα τα inputs
-    document.querySelectorAll('input, textarea, button, select').forEach(el => el.disabled = true);
-  });
-
-</script>
-
+    // ---------- Modal close helpers (αν ποτέ χρησιμοποιηθεί) ----------
+    (function(){
+      const modal = document.getElementById('modal');
+      const modalClose = document.getElementById('modalClose');
+      if (modalClose) modalClose.addEventListener('click', function(){ if(modal) modal.style.display = 'none'; });
+      if (modal) modal.addEventListener('click', function(e){ if(e.target === modal) modal.style.display = 'none'; });
+    })();
+  </script>
 </body>
 </html>
