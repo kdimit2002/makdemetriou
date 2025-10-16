@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAK Demetriou – Επαγγελματικός Εξοπλισμός Κουζίνας</title>
+  <meta name="description" content="Πείτε μας τις ανάγκες της κουζίνας σας και η MAK Demetriou θα αναζητήσει τις κατάλληλες λύσεις στο μεγαλύτερο event επαγγελματικού εξοπλισμού κουζίνας στην Ευρώπη." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Logo */
+    #logo { width: 17vw; height: auto; }
+
+    /* --------- Μεταβλητές --------- */
+    :root{
+      --primary: #E30613;
+      --primary-dark: #b50510;
+      --secondary: #0E3D75;
+      --bg: #FFFFFF;
+      --bg-soft: #F5F5F5;
+      --text: #000000;
+      --muted: #666666;
+      --radius: 12px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+      --shadow-sm: 0 6px 16px rgba(0,0,0,0.06);
+      --maxw: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'Lato', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* --------- Header --------- */
+    .topbar { background: var(--bg-soft); border-bottom: 1px solid #eee; }
+    header {
+      max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; gap: 12px;
+    }
+    .logo { display:flex; align-items:center; gap:12px; font-family:'Montserrat', sans-serif; font-weight:700; letter-spacing:.2px; }
+    .logo img { width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06)); transition: transform .3s ease; }
+    .logo span { font-size: 18px; }
+    nav ul { list-style:none; display:flex; gap:22px; padding:0; margin:0; }
+    nav a { font-weight:600; font-family:'Montserrat', sans-serif; }
+    nav a:hover{ opacity:.75; }
+
+    .announcement { padding: 10px 20px 16px; max-width: var(--maxw); margin: 0 auto; font-size: 14px; color: var(--muted); }
+
+    /* --------- Hero --------- */
+    .hero {
+      position: relative; min-height: 58vh; display: grid; place-items: center; overflow: hidden; background: #111; isolation: isolate;
+    }
+    .hero::before {
+      content:""; position:absolute; inset:0;
+      background-image:url('./milano_host1.jpg'); background-size:cover; background-position:center; background-attachment:fixed;
+      transform:scale(1.03); filter:saturate(1.05) contrast(1.02); z-index:-2;
+    }
+    .hero::after {
+      content:""; position:absolute; inset:0;
+      background: linear-gradient(rgba(14,61,117,0.6), rgba(0,0,0,0.65)); z-index:-1;
+    }
+    .hero-inner { max-width:var(--maxw); width:100%; padding:60px 20px; display:grid; gap:18px; color:#ffffff; text-align:center; text-shadow:2px 2px 6px rgba(0,0,0,0.6); }
+    .hero h1 { font-family:'Montserrat', sans-serif; font-weight:700; font-size:clamp(26px,4vw,40px); margin:0 0 6px; line-height:1.2; }
+    .hero p { font-size:clamp(16px,2.2vw,18px); opacity:.95; margin:0 0 18px; }
+
+    /* Button */
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 20px; border-radius:8px; font-family:'Montserrat', sans-serif; font-weight:600; border:none; cursor:pointer;
+      background:var(--primary); color:#fff; box-shadow:var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, filter .18s ease;
+    }
+    .btn:hover { background:var(--primary-dark); transform:translateY(-1px); box-shadow:0 14px 30px rgba(227,6,19,0.25); }
+    .btn:active { transform:translateY(0); }
+
+    /* --------- Intro --------- */
+    .section { padding:56px 20px; }
+    .intro { max-width:800px; margin:0 auto; text-align:center; }
+    .intro p{ font-weight:300; font-size:clamp(18px,2.6vw,20px); line-height:1.7; color:#111; }
+
+    /* --------- Form --------- */
+    .form-wrap { max-width:920px; margin:40px auto; background:var(--bg); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; border:1px solid #eee; }
+    .form-header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:22px 24px; background:var(--secondary); color:var(--bg); }
+    .form-header h3 { margin:0; font-family:'Montserrat', sans-serif; font-size:20px; font-weight:600; letter-spacing:.3px; }
+
+    .progress { height:6px; background:#e7edf6; }
+    .progress .bar { height:100%; width:0%; background:var(--primary); transition:width .3s ease; }
+
+    form { padding:28px 24px; display:grid; gap:22px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .field { display:flex; flex-direction:column; gap:8px; }
+    label { font-weight:600; font-family:'Montserrat', sans-serif; font-size:14px; color:var(--secondary); }
+
+    input[type="text"], input[type="email"], textarea, select {
+      padding:12px 14px; border:1px solid #ccc; border-radius:var(--radius); font-size:15px; outline:none; transition:.3s ease; background-color:#fff;
+    }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #4a4a4a;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+    textarea { min-height:140px; resize:vertical; }
+
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+    .chip {
+      background:#f2f6fa; color:var(--secondary); border:1px solid #c9d6ea; border-radius:999px; padding:8px 14px; font-size:13px; cursor:pointer; transition:all .2s ease;
+    }
+    .chip:hover { background:var(--secondary); color:#fff; border-color:var(--secondary); }
+
+    .radios { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .radio-item { border:1px solid #ddd; border-radius:var(--radius); padding:12px; display:flex; align-items:center; gap:10px; cursor:pointer; transition:all .2s ease; }
+    .radio-item:hover { background:#f9f9f9; box-shadow:var(--shadow-sm); }
+    .radio-item input:checked { accent-color: var(--primary); }
+
+    .actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .privacy { font-size:13px; color:var(--muted); line-height:1.6; max-width:700px; }
+
+    /* --------- Toast επιβεβαίωσης: ΔΕΝ μετακινεί το layout --------- */
+    .confirm{
+      display:none;
+      position:fixed; left:50%; bottom:24px; transform:translateX(-50%);
+      z-index:999;
+      padding:14px 18px; border-radius:12px;
+      background:#f2fbf4; border:1px solid #cfead6; color:#1a7f3c; font-weight:600;
+      box-shadow:var(--shadow);
+      animation:toast-in .35s ease;
+    }
+    .confirm.is-visible{ display:block; }
+    @keyframes toast-in{
+      from{ opacity:0; transform:translateX(-50%) translateY(10px); }
+      to{ opacity:1; transform:translateX(-50%) translateY(0); }
+    }
+
+    /* --------- Modal --------- */
+    .modal{ position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.45); padding:20px; z-index:1000; }
+    .modal.is-open{ display:grid; }
+    .modal-card{ background:var(--bg); border-radius:16px; width:min(520px,96vw); padding:24px; box-shadow:var(--shadow); text-align:center; }
+    .modal-card h4{ margin:0 0 6px; font-family:'Montserrat', sans-serif; }
+    .modal-card p{ margin:0 0 16px; color:var(--muted); }
+
+    /* --------- Footer --------- */
+    footer { margin-top:60px; background:var(--secondary); color:#fff; }
+    .footer-topline { height:2px; background:var(--primary); }
+    .footer-inner { max-width:var(--maxw); margin:0 auto; padding:24px 20px 40px; display:grid; gap:8px; }
+    .footer-inner a{ color:#fff; text-decoration:underline; text-underline-offset:3px; }
+
+    /* --------- Responsive --------- */
+    @media (max-width: 900px){
+      .grid { grid-template-columns: 1fr; }
+      nav ul { gap: 14px; }
+      .hero { min-height: 54vh; }
+    }
+    @media (max-width: 640px){
+      header { padding: 12px 16px; }
+      .logo span{ font-size: 16px; }
+      .actions { flex-direction: column; align-items: stretch; }
+    }
+
+    input[style*="border-color: #E30613"],
+textarea[style*="border-color: #E30613"],
+select[style*="border-color: #E30613"] {
+  box-shadow: 0 0 0 3px rgba(227,6,19,0.12);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="topbar">
+    <header>
+      <div class="logo">
+        <img id="logo" src="./mak_logo.png" alt="Λογότυπο MAK Demetriou" />
+      </div>
+      <nav aria-label="Κύρια πλοήγηση">
+        <ul>
+          <li><a href="#home">Αρχική</a></li>
+          <li><a href="#about">Σχετικά</a></li>
+          <li><a href="#contact">Επικοινωνία</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  <!-- Hero -->
+  <section id="home" class="hero" role="img" aria-label="Επαγγελματική κουζίνα">
+    <div class="hero-inner">
+      <h1>Ετοιμαζόμαστε για το μεγαλύτερο event επαγγελματικού εξοπλισμού κουζίνας στην Ευρώπη.</h1>
+      <p>Η MAK Demetriou θα βρίσκεται εκεί για να ανακαλύψει τις πιο καινοτόμες λύσεις. Πείτε μας τι χρειάζεστε — και θα ψάξουμε για εσάς.</p>
+      <div><a href="#form" class="btn" id="ctaBtn">Συμπληρώστε τη φόρμα</a></div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section id="about" class="section">
+    <div class="intro">
+      <p>
+        Ως εταιρεία με πολυετή εμπειρία στον επαγγελματικό εξοπλισμό κουζίνας, θέλουμε να ακούσουμε τις ανάγκες σας πριν επισκεφθούμε τους διεθνείς κατασκευαστές στο event. Συμπληρώστε τη σύντομη φόρμα παρακάτω — και εμείς θα αναζητήσουμε για εσάς τις κατάλληλες λύσεις.
+      </p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section id="form" class="section">
+    <div class="form-wrap" aria-labelledby="formTitle">
+      <div class="form-header"><h3 id="formTitle">Φόρμα Επικοινωνίας</h3></div>
+      <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+<form action="https://formsubmit.co/19bc0a5dba1c94cf992326a68059dab6" method="POST" accept-charset="UTF-8">
+  <!-- FormSubmit settings -->
+  <input type="hidden" name="_subject" value="Contact Form – MAK Demetriou">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://makdemetriou.com.cy/thankyou.html">
+  <!-- Honeypot -->
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="grid">
+    <div class="field">
+      <label for="company">Όνομα / Εταιρεία</label>
+      <input id="company" name="company" type="text" placeholder="π.χ. MAK Demetriou">
+    </div>
+    <div class="field">
+      <label for="business_type">Είδος επιχείρησης *</label>
+      <select id="business_type" name="business_type" required>
+        <option value="" disabled selected>Επιλέξτε</option>
+        <option value="restaurant">Εστιατόριο</option>
+        <option value="hotel">Ξενοδοχείο</option>
+        <option value="catering">Catering</option>
+        <option value="other">Άλλο</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="needs">Τι εξοπλισμό αναζητάτε ή ποιο πρόβλημα αντιμετωπίζετε; *</label>
+    <textarea id="needs" name="needs" placeholder="Περιγράψτε με λίγα λόγια…" required></textarea>
+    <div class="chips" aria-label="Ταχείες προτάσεις">
+      <span class="chip" data-insert="ψυγεία">ψυγεία</span>
+      <span class="chip" data-insert="φούρνοι">φούρνοι</span>
+      <span class="chip" data-insert="πλυντήρια πιάτων">πλυντήρια πιάτων</span>
+      <span class="chip" data-insert="πάγκοι ανοξείδωτοι">πάγκοι ανοξείδωτοι</span>
+      <span class="chip" data-insert="σύστημα αποθήκευσης">σύστημα αποθήκευσης</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Προτεραιότητα *</label>
+    <div class="radios" role="radiogroup" aria-label="Προτεραιότητα">
+      <label class="radio-item"><input type="radio" name="priority" value="energy" required> Ενεργειακή απόδοση</label>
+      <label class="radio-item"><input type="radio" name="priority" value="reliability"> Αντοχή και αξιοπιστία</label>
+      <label class="radio-item"><input type="radio" name="priority" value="innovation"> Νέες τεχνολογίες</label>
+      <label class="radio-item"><input type="radio" name="priority" value="price"> Τιμή / οικονομική λύση</label>
+      <label class="radio-item"><input type="radio" name="priority" value="other"> Άλλο</label>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="field">
+      <label for="contact">Email ή τηλέφωνο *</label>
+      <input id="contact" name="contact" type="text" placeholder="π.χ. info@makdemetriou.com ή +357…" required>
+    </div>
+    <div class="field">
+      <label for="anonymous">Επιλογές υποβολής</label>
+      <label style="display:flex; gap:10px; align-items:center; font-size:14px; color:#222;">
+        <input id="anonymous" name="anonymous" type="checkbox" value="yes">
+        <span>Θέλω η απάντησή μου να παραμείνει ανώνυμη.</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn" type="submit">Στείλτε μας τις ανάγκες σας</button>
+    <div class="privacy">
+      Οι πληροφορίες που υποβάλλονται παραμένουν εμπιστευτικές. Οι ανώνυμες απαντήσεις χρησιμοποιούνται αποκλειστικά για ερευνητικούς σκοπούς στο πλαίσιο του event.
+    </div>
+  </div>
+</form>
+
+
+    </div>
+  </section>
+
+
+<form action="https://formsubmit.co/19bc0a5dba1c94cf992326a68059dab6" method="POST" accept-charset="UTF-8"  target="_blank">
+  <input type="hidden" name="_subject" value="Test submit - MAK Demetriou">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="text"   name="contact" placeholder="Email ή τηλέφωνο" required>
+  <textarea name="needs" placeholder="Τι χρειάζεστε;" required></textarea>
+  <button type="submit">Send test</button>
+</form>
+
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-topline"></div>
+    <div class="footer-inner">
+      <div><strong>MAK Demetriou Catering Equipment</strong></div>
+      <div>📞 +357 99625266 &nbsp; ✉️ <a style="text-decoration: none; color: inherit;">info@makdemetriou.com.cy</a> &nbsp; 🌐 <a href="https://makdemetriou.com.cy" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">makdemetriou.com.cy</a></div>
+      <div>🔗 <a href="https://www.facebook.com/profile.php?id=61568395726106">Facebook</a> | <a href="https://www.instagram.com/mak_demetriou/">Instagram</a></div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h4 id="modalTitle">Η απάντησή σας καταγράφηκε επιτυχώς!</h4>
+      <p>✅ Ευχαριστούμε! Θα φροντίσουμε να εκπροσωπήσουμε τις ανάγκες σας στο επερχόμενο event.</p>
+      <button class="btn" id="modalClose">Κλείσιμο</button>
+    </div>
+  </div>
+<script>
+  // ---------- Logo micro animation ----------
+  (function(){
+    var logoImg = document.getElementById('logo');
+    if(!logoImg) return;
+    var lastY = 0;
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      var delta = Math.min(Math.max((y - lastY)/200, -0.06), 0.06);
+      logoImg.style.transform = 'rotate(' + (delta*12) + 'deg) scale(' + (1 + Math.abs(delta)/6) + ')';
+      lastY = y;
+    }, { passive: true });
+  })();
+
+  // ---------- Smooth scroll CTA (επιτρέπεται preventDefault εδώ) ----------
+  (function(){
+    var cta = document.getElementById('ctaBtn');
+    if(!cta) return;
+    cta.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.getElementById('form');
+      if(target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  })();
+
+  // ---------- Chips -> append στο textarea ----------
+  (function(){
+    var chips = document.querySelectorAll('.chip');
+    if(!chips.length) return;
+    var ta = document.getElementById('needs') || document.getElementById('need') || document.querySelector('textarea');
+    chips.forEach(function(ch){
+      ch.addEventListener('click', function(){
+        if(!ta) return;
+        var ins = ch.getAttribute('data-insert') || '';
+        var sep = ta.value && !ta.value.endsWith(' ') ? ' ' : '';
+        ta.value += sep + ins;
+        ta.focus();
+      });
+    });
+  })();
+
+  // ---------- Επιλογή στοιχείων φόρμας ----------
+  var form = document.getElementById('contactForm') || document.querySelector('section#form form');
+  if (!form) { console.warn('Form not found'); }
+
+  // Αναφορές με fallback (ASCII ή τα παλιά)
+  var anonEl     = document.getElementById('anonymous');
+  var companyEl  = document.getElementById('company')        || document.getElementById('name');
+  var contactEl  = document.getElementById('contact');
+  var businessEl = document.getElementById('business_type')  || document.getElementById('type');
+  var needsEl    = document.getElementById('needs')          || document.getElementById('need');
+  var priorityEls= form ? form.querySelectorAll('input[name="priority"], input[name="Προτεραιότητα"]') : [];
+
+  // ---------- Ανωνυμία: καθάρισμα & (απο)ενεργοποίηση company/contact ----------
+  (function(){
+    if(!anonEl || !companyEl || !contactEl) return;
+    function applyAnonState(){
+      if (anonEl.checked){
+        companyEl.value = '';
+        contactEl.value = '';
+        companyEl.disabled = true;
+        contactEl.disabled = true;
+        contactEl.removeAttribute('required'); // contact δεν απαιτείται όταν ανώνυμο
+        companyEl.style.backgroundColor = '#f4f4f4';
+        contactEl.style.backgroundColor = '#f4f4f4';
+        companyEl.style.cursor = 'not-allowed';
+        contactEl.style.cursor = 'not-allowed';
+      } else {
+        companyEl.disabled = false;
+        contactEl.disabled = false;
+        contactEl.setAttribute('required','');
+        companyEl.style.backgroundColor = '#fff';
+        contactEl.style.backgroundColor = '#fff';
+        companyEl.style.cursor = 'text';
+        contactEl.style.cursor = 'text';
+      }
+    }
+    anonEl.addEventListener('change', applyAnonState);
+    applyAnonState();
+  })();
+
+  // ---------- Validation πριν την αποστολή ----------
+  (function(){
+    if(!form) return;
+
+    function clearErrors(){
+      form.querySelectorAll('.error-msg').forEach(function(el){ el.remove(); });
+      form.querySelectorAll('input, textarea, select').forEach(function(el){ el.style.borderColor = '#ccc'; });
+    }
+    function showError(el){
+      if(!el) return;
+      el.style.borderColor = '#E30613';
+      var msg = document.createElement('div');
+      msg.textContent = 'Required';
+      msg.className = 'error-msg';
+      msg.style.color = '#E30613';
+      msg.style.fontSize = '12px';
+      msg.style.marginTop = '2px';
+      el.insertAdjacentElement('afterend', msg);
+    }
+
+    form.addEventListener('submit', function(e){
+      var valid = true;
+      clearErrors();
+
+      // Υποχρεωτικά πεδία
+      if (businessEl && !businessEl.value) { showError(businessEl); valid = false; }
+      if (needsEl && !String(needsEl.value || '').trim()) { showError(needsEl); valid = false; }
+
+      // Radio επιλογή
+      var hasPriority = false;
+      if (priorityEls && priorityEls.length){
+        priorityEls.forEach(function(r){ if(r.checked) hasPriority = true; });
+      }
+      if (!hasPriority){
+        var fieldContainer = (priorityEls[0] && priorityEls[0].closest('.field')) || form.querySelector('.field');
+        if (fieldContainer){
+          var msg = document.createElement('div');
+          msg.textContent = 'Required';
+          msg.className = 'error-msg';
+          msg.style.color = '#E30613';
+          msg.style.fontSize = '12px';
+          msg.style.marginTop = '4px';
+          fieldContainer.appendChild(msg);
+        }
+        valid = false;
+      }
+
+      // Αν δεν είναι ανώνυμος, ζητάμε contact
+      if (anonEl && !anonEl.checked && contactEl && !String(contactEl.value || '').trim()){
+        showError(contactEl);
+        valid = false;
+      }
+
+      if (!valid){
+        e.preventDefault(); // μπλοκάρουμε ΜΟΝΟ όταν υπάρχουν λάθη
+        var firstErr = form.querySelector('.error-msg');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // --- Διαγνωστικό (προαιρετικό): δες τι στέλνεται στη κονσόλα ---
+      try {
+        var entries = Array.from(new FormData(form).entries());
+        console.log('Form data about to send:', entries);
+      } catch(_) {}
+      // Δεν κάνουμε preventDefault -> αφήνουμε το browser να POST-άρει στο FormSubmit
+      // Το FormSubmit θα κάνει redirect στο _next, οπότε μην εμφανίζεις εδώ modal/toast
+    });
+  })();
+
+  // ---------- Modal close helpers (προαιρετικά) ----------
+  (function(){
+    var modal = document.getElementById('modal');
+    var modalClose = document.getElementById('modalClose');
+    if (modalClose) modalClose.addEventListener('click', function(){ if(modal) modal.style.display = 'none'; });
+    if (modal) modal.addEventListener('click', function(e){ if(e.target === modal) modal.style.display = 'none'; });
+  })();
+</script>
+
+</body>
+</html>
