@@ -9,6 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     /* Logo */
@@ -282,19 +283,34 @@
           </div>
         </div>
 
-        <div class="grid">
-          <div class="field">
-            <label for="contact">Email ή τηλέφωνο *</label>
-            <input id="contact" name="contact" type="text" placeholder="π.χ. info@makdemetriou.com ή +357…" required>
-          </div>
-          <div class="field">
-            <label for="anonymous">Επιλογές υποβολής</label>
-            <label style="display:flex; gap:10px; align-items:center; font-size:14px; color:#222;">
-              <input id="anonymous" name="anonymous" type="checkbox" value="yes">
-              <span>Θέλω η απάντησή μου να παραμείνει ανώνυμη.</span>
-            </label>
-          </div>
-        </div>
+<div class="grid">
+  <div class="field">
+    <label for="contact">Email *</label>
+    <input id="contact" name="contact" type="email" placeholder="π.χ. info@makdemetriou.com.cy" required>
+  </div>
+  <div class="field">
+    <label for="anonymous">Επιλογές υποβολής</label>
+    <label style="display:flex; gap:10px; align-items:center; font-size:14px; color:#222;">
+      <input id="anonymous" name="anonymous" type="checkbox" value="yes">
+      <span>Θέλω η απάντησή μου να παραμείνει ανώνυμη.</span>
+    </label>
+  </div>
+
+  <!-- ΝΕΟ: Τηλέφωνο (προαιρετικό) -->
+  <div class="field">
+    <label for="phone">Τηλέφωνο (προαιρετικό, 8 ψηφία)</label>
+    <input
+      id="phone"
+      name="phone"
+      type="tel"
+      placeholder="π.χ. 99625266"
+      inputmode="numeric"
+      pattern="^\d{8}$"
+      maxlength="8"
+      autocomplete="tel">
+    <div class="privacy" style="margin-top:6px">Αν το συμπληρώσετε, πρέπει να περιέχει ακριβώς 8 ψηφία.</div>
+  </div>
+</div>
 
         <div class="actions">
           <button class="btn" type="submit">Στείλτε μας τις ανάγκες σας</button>
@@ -569,6 +585,54 @@
       if (modal) modal.addEventListener('click', function(e){ if(e.target === modal) modal.style.display = 'none'; });
     })();
 
+function applyAnonState(){
+  if (anonEl.checked){
+    companyEl.value = '';
+    contactEl.value = '';
+    if (phoneEl) phoneEl.value = '';
+
+    companyEl.disabled = true;
+    contactEl.disabled = true;
+    if (phoneEl) phoneEl.disabled = true;
+
+    contactEl.removeAttribute('required');
+
+    companyEl.style.backgroundColor = '#f4f4f4';
+    contactEl.style.backgroundColor = '#f4f4f4';
+    if (phoneEl) phoneEl.style.backgroundColor = '#f4f4f4';
+
+    companyEl.style.cursor = 'not-allowed';
+    contactEl.style.cursor = 'not-allowed';
+    if (phoneEl) phoneEl.style.cursor = 'not-allowed';
+  } else {
+    companyEl.disabled = false;
+    contactEl.disabled = false;
+    if (phoneEl) phoneEl.disabled = false;
+
+    contactEl.setAttribute('required','');
+
+    companyEl.style.backgroundColor = '#fff';
+    contactEl.style.backgroundColor = '#fff';
+    if (phoneEl) phoneEl.style.backgroundColor = '#fff';
+
+    companyEl.style.cursor = 'text';
+    contactEl.style.cursor = 'text';
+    if (phoneEl) phoneEl.style.cursor = 'text';
+  }
+}
+// Έλεγχος τηλεφώνου (προαιρετικό, 8 ψηφία αν δοθεί)
+if (phoneEl) {
+  const raw = String(phoneEl.value || '').trim();
+  if (raw) {
+    const digits = raw.replace(/\D/g, ''); // κρατάμε μόνο ψηφία
+    if (digits.length !== 8) {
+      showError(phoneEl, 'Ακριβώς 8 ψηφία.');
+      valid = false;
+    } else {
+      phoneEl.value = digits; // καθαρισμένο πριν σταλεί
+    }
+  }
+}
 
     
   </script>
