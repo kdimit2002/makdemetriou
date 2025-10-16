@@ -187,6 +187,9 @@
       margin: 0 auto 12px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    .counter { font-size: 0.9rem; color: #666; margin-top: 6px; }
+
   </style>
 </head>
 <body>
@@ -198,7 +201,7 @@
       </div>
       <nav aria-label="Κύρια πλοήγηση">
         <ul>
-          <li><a href="/">Go to Mak demetriou Homepage</a></li>
+          <li><a href="/">Mak demetriou Homepage</a></li>
           <li><a href="#about">Σχετικά</a></li>
           <li><a href="#contact">Επικοινωνία</a></li>
         </ul>
@@ -263,17 +266,10 @@
           </div>
         </div>
 
-        <div class="field">
-          <label for="needs">Τι εξοπλισμό αναζητάτε ή ποιο πρόβλημα αντιμετωπίζετε; *</label>
-          <textarea id="needs" name="needs" placeholder="Περιγράψτε με λίγα λόγια…" required></textarea>
-          <div class="chips" aria-label="Ταχείες προτάσεις">
-            <span class="chip" data-insert="ψυγεία">ψυγεία</span>
-            <span class="chip" data-insert="φούρνοι">φούρνοι</span>
-            <span class="chip" data-insert="πλυντήρια πιάτων">πλυντήρια πιάτων</span>
-            <span class="chip" data-insert="πάγκοι ανοξείδωτοι">πάγκοι ανοξείδωτοι</span>
-            <span class="chip" data-insert="σύστημα αποθήκευσης">σύστημα αποθήκευσης</span>
-          </div>
-        </div>
+ <label for="needs">Τι εξοπλισμό αναζητάτε ή ποιο πρόβλημα αντιμετωπίζετε; *</label>
+<textarea id="needs" name="needs" placeholder="Περιγράψτε με λίγα λόγια…" required maxlength="2500"></textarea>
+<div id="needs-counter" class="counter" aria-live="polite">Απομένουν 8000 χαρακτήρες</div>
+
 
         <div class="field">
           <label>Προτεραιότητα *</label>
@@ -339,6 +335,70 @@
   </div>
 
   <script>
+(function () {
+  const CHAR_LIMIT = 8000; // άλλαξέ το αν θέλεις
+  const ta = document.getElementById('needs');
+  const counter = document.getElementById('needs-counter');
+
+  // Μέτρηση/κοπή σε επίπεδο Unicode code points
+  const cp = s => Array.from(s);
+  function clampToLimit(text) {
+    const arr = cp(text);
+    return arr.length > CHAR_LIMIT ? arr.slice(0, CHAR_LIMIT).join('') : text;
+  }
+
+  function updateCounter() {
+    const used = cp(ta.value).length;
+    const remaining = Math.max(0, CHAR_LIMIT - used);
+    counter.textContent = `Απομένουν ${remaining} χαρακτήρες`;
+  }
+
+  function enforceAndUpdate() {
+    const clamped = clampToLimit(ta.value);
+    if (clamped !== ta.value) {
+      const pos = Math.min(CHAR_LIMIT, cp(clamped).length);
+      ta.value = clamped;
+      ta.setSelectionRange(pos, pos);
+    }
+    updateCounter();
+  }
+
+  // Εισαγωγή κειμένου από chips χωρίς να ξεπερνά το όριο
+  function insertAtCursor(el, text) {
+    const start = el.selectionStart, end = el.selectionEnd;
+    const before = el.value.slice(0, start);
+    const after  = el.value.slice(end);
+    const needsSpaceBefore = before && !/\s$/.test(before);
+    const needsSpaceAfter  = after && !/^\s/.test(after);
+    let insert = (needsSpaceBefore ? ' ' : '') + text + (needsSpaceAfter ? ' ' : '');
+
+    // Πόσο χωράει ακόμα;
+    const remaining = CHAR_LIMIT - Array.from(el.value).length;
+    if (remaining <= 0) return;
+    insert = cp(insert).slice(0, remaining).join('');
+
+    el.value = before + insert + after;
+    const caret = before.length + insert.length;
+    el.setSelectionRange(caret, caret);
+    el.focus();
+  }
+
+  // Events
+  ta.addEventListener('input', enforceAndUpdate);
+  ta.addEventListener('paste', () => setTimeout(enforceAndUpdate, 0));
+
+  document.querySelectorAll('.chips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      insertAtCursor(ta, chip.dataset.insert || chip.textContent.trim());
+      enforceAndUpdate();
+    });
+  });
+
+  // Αρχικοποίηση + συγχρονισμός με το maxlength του HTML
+  ta.maxLength = CHAR_LIMIT;
+  enforceAndUpdate();
+})();
+
     // ---------- Logo micro animation ----------
     (function(){
       const logoImg = document.getElementById('logo');
@@ -508,6 +568,9 @@
       if (modalClose) modalClose.addEventListener('click', function(){ if(modal) modal.style.display = 'none'; });
       if (modal) modal.addEventListener('click', function(e){ if(e.target === modal) modal.style.display = 'none'; });
     })();
+
+
+    
   </script>
 </body>
 </html>
