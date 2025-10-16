@@ -447,64 +447,67 @@
       el.insertAdjacentElement('afterend', m);
     }
 
-    // ---------- Submit: Validation + Overlay ----------
-    form.addEventListener('submit', function(e){
-      let valid = true;
-      clearErrors();
+ form.addEventListener('submit', function(e){
+    let valid = true;
+    clearErrors();
 
-      // Υποχρεωτικά πεδία
-      if (!businessEl.value) { showError(businessEl); valid = false; }
+    // Υποχρεωτικά πεδία
+    if (!businessEl.value) { showError(businessEl); valid = false; }
 
-      const needsText = String(needsEl.value || '').trim();
-      if (!needsText) { showError(needsEl); valid = false; }
+    const needsText = String(needsEl.value || '').trim();
+    if (!needsText) { showError(needsEl); valid = false; }
 
-      // Όριο λέξεων
-      const wordsCount = needsText ? needsText.split(/\s+/).length : 0;
-      if (wordsCount > MAX_WORDS) {
-        showError(needsEl, `Μέχρι ${MAX_WORDS} λέξεις (έχετε ${wordsCount}).`);
+    // Όριο λέξεων
+    const wordsCount = needsText ? needsText.split(/\s+/).length : 0;
+    if (wordsCount > MAX_WORDS) {
+      showError(needsEl, `Μέχρι ${MAX_WORDS} λέξεις (έχετε ${wordsCount}).`);
+      valid = false;
+    }
+
+    // Radio επιλογή
+    let hasPriority = false;
+    priorityEls.forEach(r => { if(r.checked) hasPriority = true; });
+    if (!hasPriority){
+      const field = (priorityEls[0] && priorityEls[0].closest('.field')) || form.querySelector('.field');
+      if (field){
+        const m = document.createElement('div');
+        m.textContent = 'Required';
+        m.className = 'error-msg';
+        m.style.color = '#E30613';
+        m.style.fontSize = '12px';
+        m.style.marginTop = '4px';
+        field.appendChild(m);
+      }
+      valid = false;
+    }
+
+    // Αν δεν είναι ανώνυμος, ζητάμε contact
+    if (!anonEl.checked){
+      if (!String(contactEl.value || '').trim()){
+        showError(contactEl);
         valid = false;
       }
+    }
 
-      // Radio επιλογή
-      let hasPriority = false;
-      priorityEls.forEach(r => { if(r.checked) hasPriority = true; });
-      if (!hasPriority){
-        const field = (priorityEls[0] && priorityEls[0].closest('.field')) || form.querySelector('.field');
-        if (field){
-          const m = document.createElement('div');
-          m.textContent = 'Required';
-          m.className = 'error-msg';
-          m.style.color = '#E30613';
-          m.style.fontSize = '12px';
-          m.style.marginTop = '4px';
-          field.appendChild(m);
-        }
-        valid = false;
-      }
+    if (!valid){
+      e.preventDefault();
+      const firstErr = form.querySelector('.error-msg');
+      if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
-      // Αν δεν είναι ανώνυμος, ζητάμε contact
-      if (!anonEl.checked){
-        if (!String(contactEl.value || '').trim()){
-          showError(contactEl);
-          valid = false;
-        }
-      }
+    // Όλα ΟΚ → δείξε overlay & μπλόκαρε interactions *χωρίς* να κάνουμε disabled στα inputs
+    overlay.classList.add('active');
 
-      if (!valid){
-        e.preventDefault();
-        const firstErr = form.querySelector('.error-msg');
-        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
+    // Αποτρέπουμε clicks/scroll/keyboard interactions με pointer-events και overflow hidden
+    document.body.style.pointerEvents = 'none';
+    document.documentElement.style.overflow = 'hidden';
+    // Επιτρέπουμε interaction μόνο στο overlay (αν χρειαστεί)
+    overlay.style.pointerEvents = 'auto';
 
-      // ✅ Όλα ΟΚ → δείξε overlay & κλείδωσε τη σελίδα μέχρι το redirect στο _next
-      overlay.classList.add('active');
-
-      // Κλείδωμα αλληλεπίδρασης
-      document.querySelectorAll('input, textarea, button, select').forEach(el => el.disabled = true);
-      document.body.style.pointerEvents = 'none';
-      overlay.style.pointerEvents = 'auto';
-    });
+    // Σημαντικό: Μην απενεργοποιούμε (disabled) τα inputs εδώ — ο browser θα τα συμπεριλάβει στο POST.
+    // Η φόρμα θα υποβληθεί αμέσως μετά το event (δεν κάνουμε preventDefault).
+  });
 
     // ---------- Modal close helpers (αν ποτέ χρησιμοποιηθεί) ----------
     (function(){
