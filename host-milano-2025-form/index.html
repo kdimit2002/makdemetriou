@@ -166,6 +166,42 @@ select[style*="border-color: #E30613"] {
   box-shadow: 0 0 0 3px rgba(227,6,19,0.12);
 }
 
+#loading-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading-overlay.active {
+  display: flex;
+}
+
+.loading-box {
+  text-align: center;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #ccc;
+  border-top-color: #0078d7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 12px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
   </style>
 </head>
 <body>
@@ -289,6 +325,19 @@ select[style*="border-color: #E30613"] {
 
     </div>
   </section>
+
+
+
+<!-- Please wait -->
+  <div id="loading-overlay">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <p>Αποστολή... Παρακαλώ περιμένετε</p>
+  </div>
+</div>
+
+
+
 
 
 <form action="https://formsubmit.co/19bc0a5dba1c94cf992326a68059dab6" method="POST" accept-charset="UTF-8"  target="_blank">
@@ -476,6 +525,36 @@ select[style*="border-color: #E30613"] {
     if (modalClose) modalClose.addEventListener('click', function(){ if(modal) modal.style.display = 'none'; });
     if (modal) modal.addEventListener('click', function(e){ if(e.target === modal) modal.style.display = 'none'; });
   })();
+    const form = document.querySelector('form');
+  const textarea = document.getElementById('needs');
+  const MAX_WORDS = 1000;
+
+  form.addEventListener('submit', function (e) {
+    const words = textarea.value.trim().split(/\s+/);
+    if (words.length > MAX_WORDS) {
+      e.preventDefault();
+      alert(`Το κείμενό σας ξεπερνά το όριο των ${MAX_WORDS} λέξεων (${words.length} λέξεις). Παρακαλώ μειώστε το περιεχόμενο.`);
+      textarea.focus();
+    }
+  });
+  const overlay = document.getElementById('loading-overlay');
+
+  form.addEventListener('submit', function (e) {
+    const words = textarea.value.trim().split(/\s+/);
+    if (words.length > MAX_WORDS) {
+      e.preventDefault();
+      alert(`Το κείμενό σας ξεπερνά το όριο των ${MAX_WORDS} λέξεων (${words.length} λέξεις). Παρακαλώ μειώστε το περιεχόμενο.`);
+      textarea.focus();
+      return;
+    }
+
+    // Ενεργοποιεί το overlay και απενεργοποιεί όλη τη σελίδα
+    overlay.classList.add('active');
+
+    // Προαιρετικά: απενεργοποιεί όλα τα inputs
+    document.querySelectorAll('input, textarea, button, select').forEach(el => el.disabled = true);
+  });
+
 </script>
 
 </body>
